@@ -21,6 +21,7 @@ void init_animator(animator *animator)
     animator->have_animation = animator_have_animation;
     animator->remove_animation = animator_remove_animation;
     animator->update_frame = animator_update_frame;
+    animator->set_default = animator_set_default;
 }
 
 void animator_new_animator(sprite *self)
