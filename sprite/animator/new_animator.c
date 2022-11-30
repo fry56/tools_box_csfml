@@ -23,11 +23,10 @@ void init_animator(animator *animator)
     animator->update_frame = animator_update_frame;
 }
 
-animator *animator_new_animator()
+void animator_new_animator(sprite *self)
 {
-    animator *new_animator = malloc(sizeof(animator));
-    if (new_animator == NULL)
-        return NULL;
-    init_animator(new_animator);
-    return new_animator;
+    self->animator = malloc(sizeof(animator));
+    if (self->animator == NULL)
+        return;
+    init_animator(self->animator);
 }

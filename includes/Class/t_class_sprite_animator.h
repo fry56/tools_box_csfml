@@ -17,5 +17,5 @@
     bool animator_remove_animation(animator *self, char *animation_name);
     t_map_node *animator_have_animation(animator *self, char *animation_name);
     bool animator_set_default(animator *self, char *animation_name);
-    animator *animator_new_animator();
+    void animator_new_animator(sprite *self);
 #endif //t_class_sprite_animator
