@@ -6,7 +6,6 @@
 */
 
 #include <Class/t_class_sprite.h>
-#include <Class/t_class_sprite_animation.h>
 #include <stdlib.h>
 #include <Class/t_class_sprite_animator.h>
 
@@ -14,7 +13,8 @@ void init_sprite(sprite *sprite)
 {
     sprite->set_pos = sprite_set_pos;
     sprite->set_texture = sprite_set_texture;
-    sprite->new_animator = animator_new_animator;
+    sprite->new_animator = (void (*)(struct sprite *)) animator_new_animator;
+    sprite->sf_sprite = sfSprite_create();
 }
 
 sprite *new_sprite()

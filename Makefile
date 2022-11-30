@@ -25,7 +25,15 @@ LIB_SRC = \
 	sprite/animation/set_loop.c \
 	sprite/animation/set_frame_rate.c \
 	\
-	sprite/Events/update.c
+	sprite/Events/update.c \
+	\
+	temp/mem/calloc.c \
+	temp/mem/memcpy.c \
+	temp/mem/memmove.c \
+	temp/mem/memset.c \
+	temp/mem/realloc.c \
+	temp/string/str_cmp.c \
+	temp/string/str_len.c
 
 LIB = tool_box_csfml.a
 OBJ_LIB = $(LIB_SRC:.c=.o)
