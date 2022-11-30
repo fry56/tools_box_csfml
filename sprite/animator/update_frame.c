@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <Class/t_class_sprite_animator.h>
+#include <Class/t_class_sprite.h>
 #include <stdlib.h>
 
 int animator_update_frame(animator *self)

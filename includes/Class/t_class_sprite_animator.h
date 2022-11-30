@@ -9,24 +9,9 @@
 
     #include <stdbool.h>
     #include "t_class_sprite_animation.h"
-    #include "../tools_box/t_map.h"
+    #include "tools_box/t_ctype.h"
 
-    typedef struct animator {
-        int animation_frame;
-        t_map_node *played_animation;
-        t_map *map_animation;
-        t_map_node *default_animation;
-
-        bool (*play_animation)(struct animator*, char *animation_name);
-        bool (*add_animation)(struct animator*, animation *new_animation);
-        bool (*remove_animation)(struct animator*, char *animation_name);
-        bool (*set_default)(struct animator*, char *animation_name);
-        t_map_node *(*have_animation)(struct animator*, char *animation_name);
-        int (*update_frame)(struct animator*);
-
-    } animator;
-
-    int animator_update_frame(animator *self);
+    int animator_update_frame(animator *self, sfClock *clock);
     bool animator_play_animation(animator *self, char *animation_name);
     bool animator_add_animation(animator *self, animation *new_animation);
     bool animator_remove_animation(animator *self, char *animation_name);
