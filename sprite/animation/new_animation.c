@@ -7,11 +7,12 @@
 
 #include <Class/t_class_sprite_animation.h>
 #include <stdlib.h>
+#include <t_list.h>
 
 void init_animation(animation *animation)
 {
-    animation->sprites_sfTexture = NULL;
-    animation->nbr_sprites = 0;
+    animation->sprites_sf_texture_list = tlist_new();
+    animation->nbr_sprites = &(animation->sprites_sf_texture_list->length);
     animation->add_sprite = animation_add_sprite;
     animation->set_loop = animation_set_loop;
     animation->set_frame_rate = animation_set_frame_rate;

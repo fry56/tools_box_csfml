@@ -7,19 +7,15 @@
 
 #include <Class/t_class_sprite_animation.h>
 #include <t_mem.h>
+#include <t_list.h>
 
 bool animation_add_sprite(animation *self, char *path)
 {
     sfTexture *new_sprite;
 
-    self->sprites_sfTexture = trealloc(self->sprites_sfTexture
-        , (self->nbr_sprites) * sizeof(sfTexture *)
-        , (self->nbr_sprites + 1) * sizeof(sfTexture *));
-    if (self->sprites_sfTexture == NULL)
-        return false;
     if ((new_sprite = sfTexture_createFromFile(path, NULL)) == NULL)
         return false;
-    self->sprites_sfTexture[self->nbr_sprites] = new_sprite;
-    self->nbr_sprites++;
+    if (tlist_add(self->sprites_sf_texture_list, new_sprite) == NULL)
+        return false;
     return true;
 }

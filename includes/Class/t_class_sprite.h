@@ -11,12 +11,13 @@
     #include <stdbool.h>
     #include <t_map.h>
     #include <t_ctype.h>
+    #include <t_list.h>
 
     typedef struct animation {
         char *name;
         bool loop;
-        int nbr_sprites;
-        sfTexture **sprites_sfTexture;
+        tsize_t *nbr_sprites;
+        t_list *sprites_sf_texture_list;
         float frame_rate;
 
         bool (*add_sprite)(struct animation *, char *path);

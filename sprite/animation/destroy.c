@@ -7,11 +7,12 @@
 
 #include <Class/t_class_sprite_animation.h>
 #include <stdlib.h>
+#include <t_list.h>
 
 void animation_destroy(animation *self)
 {
-    for (int i = 0; i < self->nbr_sprites; ++i) {
-        sfTexture_destroy(self->sprites_sfTexture[i]);
+    list_foreach(self->sprites_sf_texture_list, node) {
+        sfTexture_destroy(node->value);
     }
-    free(self->sprites_sfTexture);
+    tlist_pop(self->sprites_sf_texture_list);
 }
