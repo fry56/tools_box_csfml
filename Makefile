@@ -35,7 +35,7 @@ LIB_SRC = \
 	temp/string/str_cmp.c \
 	temp/string/str_len.c
 
-LIB = tool_box_csfml.a
+LIB = tools_box_csfml.a
 OBJ_LIB = $(LIB_SRC:.c=.o)
 
 GCC = gcc
