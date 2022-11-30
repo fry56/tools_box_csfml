@@ -36,7 +36,7 @@
         bool (*play_animation)(struct animator*, char *animation_name);
         bool (*add_animation)(struct animator*, animation *new_animation);
         bool (*remove_animation)(struct animator*, char *animation_name);
-        t_map_node (*have_animation)(struct animator*, char *animation_name);
+        t_map_node *(*have_animation)(struct animator*, char *animation_name);
         int (*update_frame)(struct animator*, sfClock *clock);
         bool (*set_default)(struct animator*, char *animation_name);
     } animator;
