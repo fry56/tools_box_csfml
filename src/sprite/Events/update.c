@@ -18,9 +18,9 @@ void update_sprite_animator(sprite *sprite, sfClock *clock)
         return;
     if (animator->update_frame(animator, clock)) {
         animation_frame = tlist_get(
-                ((animation *)animator->played_animation)
-                ->sprites_sf_texture_list
-                , animator->animation_frame)->value;
+            ((animation *)animator->played_animation->value)
+            ->sprites_sf_texture_list
+            , animator->animation_frame)->value;
         sfSprite_setTexture(sprite->sf_sprite
             , animation_frame
             , sfTrue);

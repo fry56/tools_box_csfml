@@ -8,14 +8,21 @@
 #include <Class/t_class_sprite.h>
 #include <stdlib.h>
 
-int animator_update_frame(animator *self)
+int animator_update_frame(animator *self, sfClock *clock)
 {
+    animation *anim;
+
     if (self->map_animation->length == 0 || self->played_animation == NULL)
         return false;
-    if (self->animation_frame
-        >= *((animation *)self->played_animation->value)->nbr_sprites) {
+    anim = self->played_animation->value;
+    if (self->last_clock_update
+        + (int)(anim->frame_rate * 100000)
+        >= sfClock_getElapsedTime(clock).microseconds)
+        return false;
+    self->last_clock_update = sfClock_getElapsedTime(clock).microseconds;
+    if (self->animation_frame >= (*(anim->nbr_sprites) - 1)) {
         self->animation_frame = 0;
-        if (!((animation *)self->played_animation->value)->loop
+        if (!anim->loop
             && self->played_animation != self->default_animation) {
             self->played_animation = self->default_animation;
         }
