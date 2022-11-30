@@ -7,8 +7,8 @@
 
 #include <Class/t_class_sprite_animator.h>
 #include <Class/t_class_sprite_animation.h>
-#include <tools_box/t_string.h>
-#include <tools_box/t_mem.h>
+#include <t_string.h>
+#include <t_mem.h>
 
 bool animator_set_default(animator *self, char *animation_name)
 {

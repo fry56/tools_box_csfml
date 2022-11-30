@@ -6,7 +6,7 @@
 */
 
 #include <Class/t_class_sprite_animation.h>
-#include <tools_box/t_mem.h>
+#include <t_mem.h>
 
 bool animation_add_sprite(animation *self, char *path)
 {

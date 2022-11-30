@@ -7,7 +7,7 @@
 
 #include <Class/t_class_sprite_animation.h>
 #include <Class/t_class_sprite_animator.h>
-#include <tools_box/t_string.h>
+#include <t_string.h>
 
 bool animator_play_animation(animator *self, char *animation_name)
 {

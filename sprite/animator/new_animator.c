@@ -7,7 +7,7 @@
 
 #include <Class/t_class_sprite_animator.h>
 #include <stdlib.h>
-#include <tools_box/t_map.h>
+#include <t_map.h>
 
 void init_animator(animator *animator)
 {

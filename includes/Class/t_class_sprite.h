@@ -9,8 +9,8 @@
 
     #include <SFML/Graphics.h>
     #include <stdbool.h>
-    #include "../tools_box/t_map.h"
-    #include "../tools_box/t_ctype.h"
+    #include <t_map.h>
+    #include <t_ctype.h>
 
     typedef struct animation {
         char *name;
