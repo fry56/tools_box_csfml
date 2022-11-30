@@ -5,49 +5,49 @@
 ## desc
 ##
 
-LIB_SRC = \
-	sprite/functions/new_sprite.c \
-	sprite/functions/set_pos.c \
-	sprite/functions/set_texture.c \
-	sprite/functions/destroy.c \
+SRC = \
+	src/sprite/functions/new_sprite.c \
+	src/sprite/functions/set_pos.c \
+	src/sprite/functions/set_texture.c \
+	src/sprite/functions/destroy.c \
 	\
-	sprite/animator/new_animator.c \
-	sprite/animator/play_animation.c \
-	sprite/animator/set_default.c \
-	sprite/animator/remove_animation.c \
-	sprite/animator/add_animation.c \
-	sprite/animator/have_animation.c \
-	sprite/animator/update_frame.c \
+	src/sprite/animator/new_animator.c \
+	src/sprite/animator/play_animation.c \
+	src/sprite/animator/set_default.c \
+	src/sprite/animator/remove_animation.c \
+	src/sprite/animator/add_animation.c \
+	src/sprite/animator/have_animation.c \
+	src/sprite/animator/update_frame.c \
 	\
-	sprite/animation/add_sprite.c \
-	sprite/animation/new_animation.c \
-	sprite/animation/destroy.c \
-	sprite/animation/set_loop.c \
-	sprite/animation/set_frame_rate.c \
+	src/sprite/animation/add_sprite.c \
+	src/sprite/animation/new_animation.c \
+	src/sprite/animation/destroy.c \
+	src/sprite/animation/set_loop.c \
+	src/sprite/animation/set_frame_rate.c \
 	\
-	sprite/Events/update.c
+	src/sprite/Events/update.c
 
-LIB = tools_box_csfml.a
-OBJ_LIB = $(LIB_SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 GCC = gcc
 
+INCLUDE_FLAGS = \
+	-I include/ \
+	-I ../tools_box/include/
+
 C_WARNING_FLAGS = -Wextra -Wall
-
-INCLUDE_FLAGS = -I includes/ -I ../tools_box/includes/
-
-LIB_FLAGS = -lcsfml-graphics -lcsfml-window -lcsfml-system -L ../ -l:tools_box.a
-
-C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS) $(LIB_FLAGS)
+C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS)
 
 .c.o:
 	@echo "$(notdir $(CURDIR)): C '$<'"
 	@$(GCC) $(C_FLAGS) -c -o $*.o $<
 
-all: $(OBJ_LIB)
-	@ar rc $(LIB) $(OBJ_LIB)
-	@find . \( -name "*.o" \) -delete
+all: tools_box_csfml.a
 .PHONY : all
+
+tools_box_csfml.a: $(OBJ)
+	@ar rc $@ $(OBJ)
+.PHONY : tools_box_csfml.a
 
 clean:
 	@find . \( -name "*.o" -or -name "*.a" \) -delete
