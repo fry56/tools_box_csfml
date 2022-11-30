@@ -46,6 +46,8 @@ C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS) $(LIB_FLAGS)
 
 all: $(OBJ_LIB)
 	@ar rc $(LIB) $(OBJ_LIB)
+	cp $(LIB) ../
+	@find . \( -name "*.o" -or -name "*.a" \) -delete
 .PHONY : all
 
 clean:

@@ -10,11 +10,12 @@
 
 int animator_update_frame(animator *self)
 {
-    if (self->nbr_animation == 0 || self->played_animation == NULL)
+    if (self->map_animation->length == 0 || self->played_animation == NULL)
         return false;
-    if (self->animation_frame >= self->played_animation->nbr_sprites) {
+    if (self->animation_frame >= ((animation *)self->played_animation->value)->nbr_sprites) {
         self->animation_frame = 0;
-        if (!self->played_animation->loop && self->played_animation != self->default_animation) {
+        if (!((animation *)self->played_animation->value)->loop
+            && self->played_animation != self->default_animation) {
             self->played_animation = self->default_animation;
         }
         return true;

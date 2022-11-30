@@ -12,14 +12,12 @@
 
 bool animator_add_animation(animator *self, animation *new_animation)
 {
-    if (self->have_animation(self, new_animation->name) == -1)
+    t_map_node  *animation = tmap_add(self->map_animation
+            , new_animation->name
+            , new_animation);
+    if (animation == NULL)
         return false;
-    self->list_animation = trealloc(self->list_animation
-            , self->nbr_animation * sizeof(animation*)
-            , (self->nbr_animation + 1) * sizeof(animation*));
-    if (self->list_animation == NULL)
-        return false;
-    self->list_animation[self->nbr_animation] = new_animation;
-    self->nbr_animation++;
+    if (self->default_animation == NULL)
+        self->default_animation = animation;
     return true;
 }

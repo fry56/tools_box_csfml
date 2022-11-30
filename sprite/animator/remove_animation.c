@@ -12,20 +12,11 @@
 
 bool animator_remove_animation(animator *self, char *animation_name)
 {
-    int animation_index;
+    t_map_node *animation;
 
-    if ((animation_index = self->have_animation(self, animation_name)) == -1)
+    if ((animation = tmap_get(self->map_animation, animation_name)) == NULL)
         return false;
-    if (self->played_animation == self->list_animation[animation_index]
-        || self->default_animation == self->list_animation[animation_index])
+    if (self->played_animation == animation || self->default_animation == animation)
         return false;
-    free(self->list_animation[animation_index]);
-    self->list_animation[animation_index] = NULL;
-    self->list_animation = trealloc(self->list_animation
-            , self->nbr_animation * sizeof(animation*)
-            , (self->nbr_animation - 1) * sizeof(animation*));
-    if (self->list_animation == NULL)
-        return false;
-    self->nbr_animation--;
-    return true;
+    return tmap_remove(self->map_animation, animation_name);
 }

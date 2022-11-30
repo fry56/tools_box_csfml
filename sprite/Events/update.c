@@ -12,7 +12,8 @@ void update_sprite_animator(sprite *sprite)
     animator *animator = sprite->animator;
     if (animator->update_frame(animator)) {
         sfSprite_setTexture(sprite->sf_sprite
-            , animator->played_animation->sprites_sfTexture[animator->animation_frame]
+            , ((animation *)animator->played_animation)
+            ->sprites_sfTexture[animator->animation_frame]
             , sfTrue);
     }
 }

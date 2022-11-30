@@ -11,11 +11,11 @@
 
 bool animator_play_animation(animator *self, char *animation_name)
 {
-    int animation_index;
+    t_map_node *animation;
 
-    if ((animation_index = self->have_animation(self, animation_name)) == -1)
+    if ((animation = tmap_get(self->map_animation, animation_name)) == NULL)
         return false;
     self->animation_frame = 0;
-    self->played_animation = self->list_animation[animation_index];
+    self->played_animation = animation;
     return true;
 }

@@ -26,4 +26,5 @@
     void sprite_set_pos(sprite *self, float x, float y);
     bool sprite_set_texture(sprite *self, char *path);
     void sprite_destroy(sprite *self);
+    sprite *new_sprite();
 #endif //t_class_sprint
