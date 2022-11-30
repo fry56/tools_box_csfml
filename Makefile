@@ -10,6 +10,7 @@ SRC = \
 	src/sprite/functions/set_pos.c \
 	src/sprite/functions/set_texture.c \
 	src/sprite/functions/destroy.c \
+	src/sprite/functions/update.c \
 	\
 	src/sprite/animator/new_animator.c \
 	src/sprite/animator/play_animation.c \
@@ -25,7 +26,9 @@ SRC = \
 	src/sprite/animation/set_loop.c \
 	src/sprite/animation/set_frame_rate.c \
 	\
-	src/sprite/Events/update.c
+	src/sprite/events/add_event.c \
+	src/sprite/events/remove_event.c \
+	src/sprite/events/use_event.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -43,21 +43,44 @@
     } animator;
 
     typedef struct sprite {
+        t_list *host;
+        t_list_node *sprite_node;
         sfSprite *sf_sprite;
+
         sfTexture *sf_texture;
         sfVector2f pos;
 
         animator *animator;
+        t_list *events_list;
 
         void (*new_animator)(struct sprite *);
         void (*set_pos)(struct sprite *, float x, float y);
         bool (*set_texture)(struct sprite *, char *path);
         void (*destroy)(struct sprite *);
+        void (*use_event)(struct sprite *, sfEvent *event_data);
+        bool (*remove_event)(struct sprite *, tsize_t index);
+        void (*remove_events_by_type)(struct sprite *, sfEvent *event_data);
+        bool (*add_event)(struct sprite *, sfEventType type
+                , void (*event_function)(struct sprite *
+                , sfEvent *event_datas));
     } sprite;
+
+    typedef struct event {
+        sfEventType type;
+        void (*event_function)(sprite *self, sfEvent *event_datas);
+    } event;
 
     void sprite_set_pos(sprite *self, float x, float y);
     bool sprite_set_texture(sprite *self, char *path);
     void sprite_destroy(sprite *self);
-    sprite *new_sprite(void);
-    void update_sprite(sprite **list_sprites, sfClock *clock);
+    sprite *new_sprite(t_list *list_sprites);
+    void sprite_use_event(sprite *self, sfEvent *event_data);
+    bool sprite_remove_event(sprite *self, tsize_t index);
+    void sprite_remove_events_by_type(sprite *self, sfEvent *event_data);
+    bool sprite_add_event(sprite *self, sfEventType type
+            , void (*event_function)(sprite *sprite_pointer
+            , sfEvent *event_datas));
+
+    void clock_update_sprite(t_list *list_sprites, sfClock *clock);
+    void event_update_sprite(t_list *list_sprites, sfEvent *event_datas);
 #endif //t_class_sprint

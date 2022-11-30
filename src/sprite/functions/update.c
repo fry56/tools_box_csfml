@@ -27,9 +27,18 @@ void update_sprite_animator(sprite *sprite, sfClock *clock)
     }
 }
 
-void update_sprite(sprite **list_sprites, sfClock *clock)
+void clock_update_sprite(t_list *list_sprites, sfClock *clock)
 {
-    for (int i = 0; list_sprites[i] != NULL; ++i) {
-        update_sprite_animator(list_sprites[i], clock);
+    list_foreach(list_sprites, node) {
+        update_sprite_animator(((sprite *)node->value), clock);
+    }
+}
+
+void event_update_sprite(t_list *list_sprites, sfEvent *event_datas)
+{
+    list_foreach(list_sprites, node) {
+        if (((sprite *)node->value)->events_list->length == 0)
+            continue;
+        sprite_use_event(((sprite *)node->value), event_datas);
     }
 }
