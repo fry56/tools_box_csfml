@@ -56,7 +56,7 @@ all: $(OBJ_LIB)
 	@ar rc $(LIB) $(OBJ_LIB)
 	cp $(LIB) ../
 	mkdir ../../includes/tools_box_csfml
-	cp includes/*.h ../../includes/tools_box_csfml/
+	cp -f -R includes/* ../../includes/tools_box_csfml/
 	@find . \( -name "*.o" -or -name "*.a" \) -delete
 .PHONY : all
 

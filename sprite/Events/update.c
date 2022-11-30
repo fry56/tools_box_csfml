@@ -7,6 +7,7 @@
 
 #include <Class/t_class_sprite.h>
 #include <stdio.h>
+
 void update_sprite_animator(sprite *sprite, sfClock *clock)
 {
     animator *animator = sprite->animator;

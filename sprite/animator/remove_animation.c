@@ -16,7 +16,8 @@ bool animator_remove_animation(animator *self, char *animation_name)
 
     if ((animation = tmap_get(self->map_animation, animation_name)) == NULL)
         return false;
-    if (self->played_animation == animation || self->default_animation == animation)
+    if (self->played_animation == animation
+        || self->default_animation == animation)
         return false;
     return tmap_remove(self->map_animation, animation_name);
 }
