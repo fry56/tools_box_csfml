@@ -10,8 +10,8 @@
     #include <SFML/Graphics.h>
     #include <stdbool.h>
     #include <t_map.h>
-    #include <t_ctype.h>
     #include <t_list.h>
+    #include <t_ctype.h>
 
     typedef struct animation {
         char *name;
@@ -28,7 +28,7 @@
 
     typedef struct animator {
         int nbr_animation;
-        int animation_frame;
+        tsize_t animation_frame;
         t_map_node *played_animation;
         t_map *map_animation;
         t_map_node *default_animation;

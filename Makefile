@@ -36,7 +36,9 @@ C_WARNING_FLAGS = -Wextra -Wall
 
 INCLUDE_FLAGS = -I includes/ -I ../tools_box/includes/
 
-C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS)
+LIB_FLAGS = -lcsfml-graphics -lcsfml-window -lcsfml-system -L ../ -l:tools_box.a
+
+C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS) $(LIB_FLAGS)
 
 .c.o:
 	@echo "$(notdir $(CURDIR)): C '$<'"
