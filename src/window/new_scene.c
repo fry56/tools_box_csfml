@@ -5,7 +5,6 @@
 ** desc
 */
 
-#include <Class/t_class_scene.h>
 #include <Class/t_class_window.h>
 #include <stdlib.h>
 
@@ -26,6 +25,7 @@ scene *window_new_scene(window *self, char *name)
         free(new_scene);
         return NULL;
     }
+    new_scene->host = self;
     if (self->actual_scene == NULL)
         self->actual_scene = new_scene_node;
     return new_scene;

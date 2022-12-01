@@ -8,11 +8,14 @@
     #define t_class_window
 
     #include <SFML/Graphics.h>
+    #include <SFML/Audio.h>
     #include <t_map.h>
-    #include <Class/t_class_scene.h>
-    #include <SFML/System/Export.h>
-    #include <SFML/System/Time.h>
-    #include <SFML/System/Types.h>
+    #include <t_list.h>
+
+    typedef struct scene {
+        struct window *host;
+        t_list *list_sprites;
+    } scene;
 
     typedef struct window {
         sfVideoMode mode;
@@ -23,10 +26,10 @@
         sfClock *global_clock;
 
         scene *(*new_scene)(struct window *, char *name);
-        bool (*set_scene)(struct window *, char *scene_name);
+        bool (*load_scene)(struct window *, char *scene_name);
     } window;
 
     scene *window_new_scene(window *self, char *name);
-    bool window_set_scene(window *self, char *scene_name);
+    bool window_load_scene(window *self, char *scene_name);
     window *new_window(char *name, sfVideoMode mode);
 #endif //t_class_window

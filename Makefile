@@ -19,6 +19,9 @@ SRC = \
 	src/sprite/animator/add_animation.c \
 	src/sprite/animator/have_animation.c \
 	src/sprite/animator/update_frame.c \
+	src/sprite/animator/callback.c \
+	src/sprite/animator/add_callback.c \
+	src/sprite/animator/remove_callback.c \
 	\
 	src/sprite/animation/add_sprite.c \
 	src/sprite/animation/new_animation.c \
@@ -34,7 +37,7 @@ SRC = \
 	src/sprite/events/handling/is_mouse_click.c \
 	\
 	src/window/new_window.c \
-	src/window/set_scene.c \
+	src/window/load_scene.c \
 	src/window/new_scene.c
 
 OBJ = $(SRC:.c=.o)

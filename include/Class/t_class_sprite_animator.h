@@ -17,4 +17,9 @@
     t_map_node *animator_have_animation(animator *self, char *animation_name);
     bool animator_set_default(animator *self, char *animation_name);
     void animator_new_animator(sprite *self);
+    void animator_callback(animator *self, char *animation_name);
+    bool animator_add_callback(animator *self, char *animation_name
+        , void (*call_back)(struct sprite *sprite_pointer));
+    bool animator_remove_callback(animator *self, tsize_t index);
+    void animator_remove_callback_by_name(animator *self, char *animation_name);
 #endif //t_class_sprite_animator

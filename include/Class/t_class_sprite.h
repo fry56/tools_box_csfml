@@ -28,11 +28,12 @@
     } animation;
 
     typedef struct animator {
-        int nbr_animation;
+        struct sprite *host;
         tsize_t animation_frame;
         t_map_node *played_animation;
         t_map *map_animation;
         t_map_node *default_animation;
+        t_list *callback_list;
         int64_t last_clock_update;
 
         bool (*play_animation)(struct animator *, char *animation_name);
@@ -41,10 +42,15 @@
         t_map_node *(*have_animation)(struct animator *, char *animation_name);
         int (*update_frame)(struct animator *, sfClock *clock);
         bool (*set_default)(struct animator *, char *animation_name);
+        void (*callback)(struct animator *, char *animation_name);
+        bool (*remove_callback)(struct animator *, tsize_t index);
+        void (*remove_callback_by_name)(struct animator *
+            , char *animation_name);
+        bool (*add_callback)(struct animator *, char *animation_name, void (*call_back)());
     } animator;
 
     typedef struct sprite {
-        t_list *host;
+        scene *host;
         t_list_node *sprite_node;
         sfSprite *sf_sprite;
 
@@ -65,7 +71,7 @@
         void (*remove_events_by_type)(struct sprite *, sfEvent *event_data);
         bool (*add_event)(struct sprite *, sfEventType type
                 , void (*event_function)(struct sprite *
-                , sfEvent *event_datas));
+                , window *window_datas));
     } sprite;
 
     typedef struct event {
@@ -76,14 +82,13 @@
     void sprite_set_pos(sprite *self, float x, float y);
     bool sprite_set_texture(sprite *self, char *path);
     void sprite_destroy(sprite *self);
-    sprite *new_sprite(t_list *list_sprites);
+    sprite *new_sprite(scene *scene_datas);
     void sprite_use_event(sprite *self, window *window_datas);
     bool sprite_remove_event(sprite *self, tsize_t index);
     void sprite_remove_events_by_type(sprite *self, sfEvent *event_data);
     bool sprite_add_event(sprite *self, sfEventType type
-            , void (*event_function)(sprite *sprite_pointer
-            , window *window_datas));
-
+        , void (*event_function)(sprite *sprite_pointer
+        , window *window_datas));
     bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas);
     bool sprite_is_mouse_click(sprite *self, sfEvent *event_datas);
 

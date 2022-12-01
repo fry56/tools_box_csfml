@@ -12,7 +12,7 @@ void init_window(window *self)
 {
     self->actual_scene = NULL;
     self->new_scene = window_new_scene;
-    self->set_scene = window_set_scene;
+    self->load_scene = window_load_scene;
 }
 
 window *new_window(char *name, sfVideoMode mode)

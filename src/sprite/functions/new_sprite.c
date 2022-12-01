@@ -27,18 +27,18 @@ void init_sprite(sprite *sprite)
     sprite->events_list = tlist_new();
 }
 
-sprite *new_sprite(t_list *list_sprites)
+sprite *new_sprite(scene *scene_datas)
 {
     sprite *new_sprite = malloc(sizeof(sprite));
     t_list_node *new_sprite_node;
 
     if(new_sprite == NULL)
         return NULL;
-    if ((new_sprite_node = tlist_add(list_sprites, new_sprite)) == NULL) {
+    if ((new_sprite_node = tlist_add(scene_datas->list_sprites, new_sprite)) == NULL) {
         free(new_sprite);
         return NULL;
     }
-    new_sprite->host = list_sprites;
+    new_sprite->host = scene_datas;
     new_sprite->sprite_node = new_sprite_node;
     init_sprite(new_sprite);
     return new_sprite;
