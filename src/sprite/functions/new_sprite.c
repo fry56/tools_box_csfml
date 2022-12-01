@@ -15,6 +15,13 @@ void init_sprite(sprite *sprite)
     sprite->set_pos = sprite_set_pos;
     sprite->set_texture = sprite_set_texture;
     sprite->new_animator = animator_new_animator;
+    sprite->destroy = sprite_destroy;
+    sprite->use_event = sprite_use_event;
+    sprite->remove_event = sprite_remove_event;
+    sprite->remove_events_by_type = sprite_remove_events_by_type;
+    sprite->add_event = sprite_add_event;
+    sprite->is_mouse_over = sprite_is_mouse_over;
+    sprite->is_mouse_click = sprite_is_mouse_click;
     sprite->sf_sprite = sfSprite_create();
     sprite->events_list = tlist_new();
 }

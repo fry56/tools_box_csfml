@@ -28,7 +28,10 @@ SRC = \
 	\
 	src/sprite/events/add_event.c \
 	src/sprite/events/remove_event.c \
-	src/sprite/events/use_event.c
+	src/sprite/events/use_event.c \
+	\
+	src/sprite/events/handling/is_mouse_over.c \
+	src/sprite/events/handling/is_mouse_click.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -53,6 +53,8 @@
         animator *animator;
         t_list *events_list;
 
+        bool (*is_mouse_click)(struct sprite *, sfEvent *event_datas);
+        bool (*is_mouse_over)(struct sprite *, sfEvent *event_datas);
         void (*new_animator)(struct sprite *);
         void (*set_pos)(struct sprite *, float x, float y);
         bool (*set_texture)(struct sprite *, char *path);
@@ -80,6 +82,9 @@
     bool sprite_add_event(sprite *self, sfEventType type
             , void (*event_function)(sprite *sprite_pointer
             , sfEvent *event_datas));
+
+    bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas);
+    bool sprite_is_mouse_click(sprite *self, sfEvent *event_datas);
 
     void clock_update_sprite(t_list *list_sprites, sfClock *clock);
     void event_update_sprite(t_list *list_sprites, sfEvent *event_datas);
