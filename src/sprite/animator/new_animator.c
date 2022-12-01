@@ -15,6 +15,7 @@ void init_animator(animator *animator)
     animator->map_animation = tmap_new();
     animator->played_animation = NULL;
     animator->default_animation = NULL;
+    animator->last_clock_update = 1000;
 
     animator->play_animation = animator_play_animation;
     animator->add_animation = animator_add_animation;
@@ -26,8 +27,9 @@ void init_animator(animator *animator)
 
 void animator_new_animator(sprite *self)
 {
-    self->animator = malloc(sizeof(animator));
-    if (self->animator == NULL)
+    animator *new_animator = malloc(sizeof(animator));
+    if (new_animator == NULL)
         return;
-    init_animator(self->animator);
+    init_animator(new_animator);
+    self->animator = new_animator;
 }

@@ -12,6 +12,7 @@
 
 void init_sprite(sprite *sprite)
 {
+    sprite->animator = NULL;
     sprite->set_pos = sprite_set_pos;
     sprite->set_texture = sprite_set_texture;
     sprite->new_animator = animator_new_animator;
