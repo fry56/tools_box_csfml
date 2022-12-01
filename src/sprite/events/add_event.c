@@ -7,10 +7,11 @@
 
 #include <Class/t_class_sprite.h>
 #include <stdlib.h>
+#include <Class/t_class_window.h>
 
 bool sprite_add_event(sprite *self, sfEventType type
     , void (*event_function)(sprite *sprite_pointer
-    , sfEvent *event_datas))
+    , window *window_datas))
 {
     event *new_event = malloc(sizeof(event));
 

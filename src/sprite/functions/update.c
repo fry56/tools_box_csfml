@@ -8,6 +8,7 @@
 #include <Class/t_class_sprite.h>
 #include <stdio.h>
 #include <t_list.h>
+#include <Class/t_class_window.h>
 
 void update_sprite_animator(sprite *sprite, sfClock *clock)
 {
@@ -34,11 +35,11 @@ void clock_update_sprite(t_list *list_sprites, sfClock *clock)
     }
 }
 
-void event_update_sprite(t_list *list_sprites, sfEvent *event_datas)
+void event_update_sprite(t_list *list_sprites, window *window_datas)
 {
     list_foreach(list_sprites, node) {
         if (((sprite *)node->value)->events_list->length == 0)
             continue;
-        sprite_use_event(((sprite *)node->value), event_datas);
+        sprite_use_event(((sprite *)node->value), window_datas);
     }
 }

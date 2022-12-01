@@ -12,6 +12,7 @@
     #include <t_map.h>
     #include <t_list.h>
     #include <t_ctype.h>
+    #include "t_class_window.h"
 
     typedef struct animation {
         char *name;
@@ -59,7 +60,7 @@
         void (*set_pos)(struct sprite *, float x, float y);
         bool (*set_texture)(struct sprite *, char *path);
         void (*destroy)(struct sprite *);
-        void (*use_event)(struct sprite *, sfEvent *event_data);
+        void (*use_event)(struct sprite *, window *window_datas);
         bool (*remove_event)(struct sprite *, tsize_t index);
         void (*remove_events_by_type)(struct sprite *, sfEvent *event_data);
         bool (*add_event)(struct sprite *, sfEventType type
@@ -69,23 +70,23 @@
 
     typedef struct event {
         sfEventType type;
-        void (*event_function)(sprite *self, sfEvent *event_datas);
+        void (*event_function)(sprite *self, window *window_datas);
     } event;
 
     void sprite_set_pos(sprite *self, float x, float y);
     bool sprite_set_texture(sprite *self, char *path);
     void sprite_destroy(sprite *self);
     sprite *new_sprite(t_list *list_sprites);
-    void sprite_use_event(sprite *self, sfEvent *event_data);
+    void sprite_use_event(sprite *self, window *window_datas);
     bool sprite_remove_event(sprite *self, tsize_t index);
     void sprite_remove_events_by_type(sprite *self, sfEvent *event_data);
     bool sprite_add_event(sprite *self, sfEventType type
             , void (*event_function)(sprite *sprite_pointer
-            , sfEvent *event_datas));
+            , window *window_datas));
 
     bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas);
     bool sprite_is_mouse_click(sprite *self, sfEvent *event_datas);
 
     void clock_update_sprite(t_list *list_sprites, sfClock *clock);
-    void event_update_sprite(t_list *list_sprites, sfEvent *event_datas);
+    void event_update_sprite(t_list *list_sprites, window *window_datas);
 #endif //t_class_sprint
