@@ -14,7 +14,8 @@ bool animator_set_default(animator *self, char *animation_name)
 {
     t_map_node *animation_node;
 
-    if ((animation_node = tmap_get(self->map_animation, animation_name)) == NULL)
+    if ((animation_node = tmap_get(self->map_animation
+        , animation_name)) == NULL)
         return false;
     if (self->played_animation == NULL)
         self->played_animation = animation_node;

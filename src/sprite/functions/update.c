@@ -37,10 +37,7 @@ void clock_update_sprite(scene *scene_datas, sfClock *clock)
 
 void event_update_sprite(scene *scene_datas, window *window_datas)
 {
-    int i = 0;
     list_foreach(scene_datas->list_sprites, node) {
-        printf("[%d]NBR : %lu \n", i, ((sprite *)node->value)->events_list->length);
-        i++;
         if (((sprite *)node->value)->events_list->length > 0)
             sprite_use_event(((sprite *)node->value), window_datas);
     }

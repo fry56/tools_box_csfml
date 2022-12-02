@@ -46,7 +46,8 @@
         bool (*remove_callback)(struct animator *, tsize_t index);
         void (*remove_callback_by_name)(struct animator *
             , char *animation_name);
-        bool (*add_callback)(struct animator *, char *animation_name, void (*call_back)());
+        bool (*add_callback)(struct animator *, char *animation_name
+            , void (*call_back)());
     } animator;
 
     typedef struct sprite {

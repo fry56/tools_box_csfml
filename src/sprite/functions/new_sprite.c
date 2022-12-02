@@ -32,9 +32,10 @@ sprite *new_sprite(scene *scene_datas)
     sprite *new_sprite = malloc(sizeof(sprite));
     t_list_node *new_sprite_node;
 
-    if(new_sprite == NULL)
+    if (new_sprite == NULL)
         return NULL;
-    if ((new_sprite_node = tlist_add(scene_datas->list_sprites, new_sprite)) == NULL) {
+    if ((new_sprite_node = tlist_add(scene_datas->list_sprites, new_sprite))
+        == NULL) {
         free(new_sprite);
         return NULL;
     }
