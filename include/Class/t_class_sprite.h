@@ -58,9 +58,15 @@
         sfTexture *sf_texture;
         sfVector2f pos;
 
+        t_list *list_flag;
+        t_map *map_datas;
+
         animator *animator;
         t_list *events_list;
 
+        bool (*have_flag)(struct sprite *, char *flag);
+        bool (*remove_flag)(struct sprite *, char *flag);
+        bool (*add_flag)(struct sprite *, char *flag);
         bool (*is_mouse_click)(struct sprite *, sfEvent *event_datas);
         bool (*is_mouse_over)(struct sprite *, sfEvent *event_datas);
         void (*new_animator)(struct sprite *);
@@ -92,6 +98,9 @@
         , window *window_datas));
     bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas);
     bool sprite_is_mouse_click(sprite *self, sfEvent *event_datas);
+    bool sprite_remove_flag(sprite *self, char *flag);
+    bool sprite_add_flag(sprite *self, char *flag);
+    bool sprite_have_flag(sprite *self, char *flag);
 
     void clock_update_sprite(scene *scene_datas, sfClock *clock);
     void event_update_sprite(scene *scene_datas, window *window_datas);

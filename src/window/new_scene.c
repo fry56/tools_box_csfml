@@ -13,6 +13,7 @@
 void init_new_scene(scene *new_scene, void (*load)(struct scene *)
     , void (*unload)(struct scene *))
 {
+    new_scene->map_datas = tmap_new();
     new_scene->list_clock_update_functions = tlist_new();
     new_scene->list_event_update_functions = tlist_new();
     new_scene->add_clock_update_function

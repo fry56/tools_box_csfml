@@ -15,7 +15,7 @@ int animator_update_frame(animator *self, sfClock *clock)
         return false;
     anim = self->played_animation->value;
     if (self->last_clock_update
-        + (int)(anim->frame_rate * 100000)
+        + (int)(anim->frame_rate * 10000)
         >= sfClock_getElapsedTime(clock).microseconds)
         return false;
     self->last_clock_update = sfClock_getElapsedTime(clock).microseconds;

@@ -9,9 +9,11 @@
 #include <stdlib.h>
 #include <Class/t_class_sprite_animator.h>
 #include <t_list.h>
+#include <t_map.h>
 
 void init_sprite(sprite *sprite)
 {
+    sprite->sf_texture = NULL;
     sprite->animator = NULL;
     sprite->set_pos = sprite_set_pos;
     sprite->set_texture = sprite_set_texture;
@@ -25,6 +27,11 @@ void init_sprite(sprite *sprite)
     sprite->is_mouse_click = sprite_is_mouse_click;
     sprite->sf_sprite = sfSprite_create();
     sprite->events_list = tlist_new();
+    sprite->list_flag = tlist_new();
+    sprite->have_flag = sprite_have_flag;
+    sprite->add_flag = sprite_add_flag;
+    sprite->remove_flag = sprite_remove_flag;
+    sprite->map_datas = tmap_new();
 }
 
 sprite *new_sprite(scene *scene_datas)

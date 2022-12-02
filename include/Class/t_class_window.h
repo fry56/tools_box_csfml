@@ -18,6 +18,7 @@
         t_list *list_sprites;
         t_list *list_clock_update_functions;
         t_list *list_event_update_functions;
+        t_map *map_datas;
 
         bool (*add_clock_update_function)(struct scene *
             , void (*clock_update_function)
