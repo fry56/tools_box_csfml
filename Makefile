@@ -38,7 +38,13 @@ SRC = \
 	\
 	src/window/new_window.c \
 	src/window/change_scene.c \
-	src/window/new_scene.c
+	src/window/update.c \
+	src/window/new_scene.c \
+	\
+	src/scene/add_clock_update_function.c \
+	src/scene/add_event_update_function.c \
+	src/scene/remove_clock_update_function.c \
+	src/scene/remove_event_update_function.c
 
 OBJ = $(SRC:.c=.o)
 

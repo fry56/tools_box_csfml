@@ -7,9 +7,23 @@
 
 #include <Class/t_class_window.h>
 #include <stdlib.h>
+#include <Class/t_class_scene.h>
+#include <Class/t_class_sprite.h>
 
 void init_new_scene(scene *new_scene, void (*load)(struct scene *), void (*unload)(struct scene *))
 {
+    new_scene->list_clock_update_functions = tlist_new();
+    new_scene->list_event_update_functions = tlist_new();
+    new_scene->add_clock_update_function
+        = scene_add_clock_update_function;
+    new_scene->remove_clock_update_function
+        = scene_remove_clock_update_function;
+    new_scene->add_event_update_function
+        = scene_add_event_update_function;
+    new_scene->remove_event_update_function
+        = scene_remove_event_update_function;
+    new_scene->add_event_update_function(new_scene, event_update_sprite);
+    new_scene->add_clock_update_function(new_scene, clock_update_sprite);
     new_scene->load = load;
     new_scene->unload = unload;
 }

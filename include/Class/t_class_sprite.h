@@ -92,6 +92,6 @@
     bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas);
     bool sprite_is_mouse_click(sprite *self, sfEvent *event_datas);
 
-    void clock_update_sprite(t_list *list_sprites, sfClock *clock);
-    void event_update_sprite(t_list *list_sprites, window *window_datas);
+    void clock_update_sprite(scene *scene_datas, sfClock *clock);
+    void event_update_sprite(scene *scene_datas, window *window_datas);
 #endif //t_class_sprint

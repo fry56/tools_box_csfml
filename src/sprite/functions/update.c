@@ -28,17 +28,17 @@ void update_sprite_animator(sprite *sprite, sfClock *clock)
     }
 }
 
-void clock_update_sprite(t_list *list_sprites, sfClock *clock)
+void clock_update_sprite(scene *scene_datas, sfClock *clock)
 {
-    list_foreach(list_sprites, node) {
+    list_foreach(scene_datas->list_sprites, node) {
         update_sprite_animator(((sprite *)node->value), clock);
     }
 }
 
-void event_update_sprite(t_list *list_sprites, window *window_datas)
+void event_update_sprite(scene *scene_datas, window *window_datas)
 {
     int i = 0;
-    list_foreach(list_sprites, node) {
+    list_foreach(scene_datas->list_sprites, node) {
         printf("[%d]NBR : %lu \n", i, ((sprite *)node->value)->events_list->length);
         i++;
         if (((sprite *)node->value)->events_list->length > 0)

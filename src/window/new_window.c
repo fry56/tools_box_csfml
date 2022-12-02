@@ -13,6 +13,8 @@ void init_window(window *self)
     self->actual_scene = NULL;
     self->new_scene = window_new_scene;
     self->change_scene = window_change_scene;
+    self->clock_update = window_clock_update;
+    self->event_update = window_event_update;
 }
 
 window *new_window(char *name, sfVideoMode mode)
