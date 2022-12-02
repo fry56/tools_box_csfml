@@ -12,7 +12,7 @@ void init_window(window *self)
 {
     self->actual_scene = NULL;
     self->new_scene = window_new_scene;
-    self->load_scene = window_load_scene;
+    self->change_scene = window_change_scene;
 }
 
 window *new_window(char *name, sfVideoMode mode)
@@ -23,7 +23,7 @@ window *new_window(char *name, sfVideoMode mode)
         return NULL;
     new_window->mode = mode;
     new_window->window = sfRenderWindow_create(mode, name
-        , sfResize | sfClose, NULL);
+        , sfClose, NULL);
     if (!new_window->window) {
         free(new_window);
         return NULL;

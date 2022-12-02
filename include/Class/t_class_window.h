@@ -13,8 +13,11 @@
     #include <t_list.h>
 
     typedef struct scene {
+        bool is_active;
         struct window *host;
         t_list *list_sprites;
+        void (*load)(struct scene *);
+        void (*unload)(struct scene *);
     } scene;
 
     typedef struct window {
@@ -25,11 +28,15 @@
         t_map_node *actual_scene;
         sfClock *global_clock;
 
-        scene *(*new_scene)(struct window *, char *name);
-        bool (*load_scene)(struct window *, char *scene_name);
+        scene *(*new_scene)(struct window *, char *name
+                , void (*load)(struct scene *)
+                , void (*unload)(struct scene *));
+        bool (*change_scene)(struct window *, char *scene_name);
     } window;
 
-    scene *window_new_scene(window *self, char *name);
-    bool window_load_scene(window *self, char *scene_name);
+    scene *window_new_scene(window *self, char *name
+        , void (*load)(struct scene *)
+        , void (*unload)(struct scene *));
+    bool window_change_scene(window *self, char *scene_name);
     window *new_window(char *name, sfVideoMode mode);
 #endif //t_class_window

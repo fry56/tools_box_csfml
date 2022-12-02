@@ -16,6 +16,7 @@ void init_animation(animation *animation)
     animation->add_sprite = animation_add_sprite;
     animation->set_loop = animation_set_loop;
     animation->set_frame_rate = animation_set_frame_rate;
+    animation->destroy = animation_destroy;
 }
 
 animation *new_animation(char *name, bool loop, float frame_rate)

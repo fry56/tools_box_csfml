@@ -37,7 +37,7 @@ SRC = \
 	src/sprite/events/handling/is_mouse_click.c \
 	\
 	src/window/new_window.c \
-	src/window/load_scene.c \
+	src/window/change_scene.c \
 	src/window/new_scene.c
 
 OBJ = $(SRC:.c=.o)

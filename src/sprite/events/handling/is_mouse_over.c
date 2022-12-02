@@ -13,7 +13,7 @@ bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas)
 
     if (event_datas->type != sfEvtMouseMoved)
         return false;
-    sprite_bounds = sfSprite_getLocalBounds(self->sf_sprite);
+    sprite_bounds = sfSprite_getGlobalBounds(self->sf_sprite);
     if (self->pos.x >= (float)event_datas->mouseButton.x
         || (self->pos.x + sprite_bounds.width)
            <= (float)event_datas->mouseMove.x)

@@ -8,7 +8,15 @@
 #include <Class/t_class_window.h>
 #include <stdlib.h>
 
-scene *window_new_scene(window *self, char *name)
+void init_new_scene(scene *new_scene, void (*load)(struct scene *), void (*unload)(struct scene *))
+{
+    new_scene->load = load;
+    new_scene->unload = unload;
+}
+
+scene *window_new_scene(window *self, char *name
+    , void (*load)(struct scene *)
+    , void (*unload)(struct scene *))
 {
     scene *new_scene = malloc(sizeof(scene));
     t_map_node *new_scene_node;
@@ -28,5 +36,6 @@ scene *window_new_scene(window *self, char *name)
     new_scene->host = self;
     if (self->actual_scene == NULL)
         self->actual_scene = new_scene_node;
+    init_new_scene(new_scene, load, unload);
     return new_scene;
 }

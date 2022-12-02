@@ -15,4 +15,5 @@ void animation_destroy(animation *self)
         sfTexture_destroy(node->value);
     }
     tlist_pop(self->sprites_sf_texture_list);
+    self->sprites_sf_texture_list = NULL;
 }
