@@ -5,9 +5,9 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
+#include <Class/t_class_text.h>
 
-bool sprite_add_flag(sprite *self, char *flag)
+bool text_add_flag(text *self, char *flag)
 {
     if (self->have_flag(self, flag))
         return false;

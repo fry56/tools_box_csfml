@@ -5,10 +5,10 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
+#include <Class/t_class_text.h>
 #include <t_string.h>
 
-bool sprite_have_flag(sprite *self, char *flag)
+bool text_have_flag(text *self, char *flag)
 {
     list_foreach(self->list_flags, node) {
         if (tstr_cmp(node->value, flag) == 0)

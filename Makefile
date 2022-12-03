@@ -47,7 +47,18 @@ SRC = \
 	src/scene/add_clock_update_function.c \
 	src/scene/add_event_update_function.c \
 	src/scene/remove_clock_update_function.c \
-	src/scene/remove_event_update_function.c
+	src/scene/remove_event_update_function.c \
+	\
+	src/text/destroy.c \
+	src/text/new_text.c \
+	src/text/set_pos.c \
+	src/text/set_font_color.c \
+	src/text/set_font_size.c \
+	src/text/set_origin_center.c \
+	src/text/set_content.c \
+	src/text/add_flag.c \
+	src/text/remove_flag.c \
+	src/text/have_flag.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -58,7 +58,7 @@
         sfTexture *sf_texture;
         sfVector2f pos;
 
-        t_list *list_flag;
+        t_list *list_flags;
         t_map *map_datas;
 
         animator *animator;

@@ -16,6 +16,7 @@
         bool is_active;
         struct window *host;
         t_list *list_sprites;
+        t_list *list_texts;
         t_list *list_clock_update_functions;
         t_list *list_event_update_functions;
         t_map *map_datas;
