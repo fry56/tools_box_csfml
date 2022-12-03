@@ -10,17 +10,22 @@
 bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas)
 {
     sfFloatRect sprite_bounds;
-
+    sfVector2f pos;
+    sfVector2f origin;
+    sfVector2f scale;
     if (event_datas->type != sfEvtMouseMoved)
         return false;
+    pos = sfSprite_getPosition(self->sf_sprite);
     sprite_bounds = sfSprite_getGlobalBounds(self->sf_sprite);
-    if (self->pos.x >= (float)event_datas->mouseButton.x
-        || (self->pos.x + sprite_bounds.width)
-        <= (float)event_datas->mouseMove.x)
+    origin = sfSprite_getOrigin(self->sf_sprite);
+    scale = sfSprite_getScale(self->sf_sprite);
+    if (pos.x - (origin.x * scale.x) > (float)event_datas->mouseButton.x
+        || (pos.x + (sprite_bounds.width - (origin.x * scale.x)))
+           < (float)event_datas->mouseButton.x)
         return false;
-    if (self->pos.y >= (float)event_datas->mouseButton.y
-        || (self->pos.y + sprite_bounds.height)
-        <= (float)event_datas->mouseMove.y)
+    if (pos.y - (origin.y * scale.y) > (float)event_datas->mouseButton.y
+        || (pos.y + (sprite_bounds.height - (origin.y * scale.y)))
+           < (float)event_datas->mouseButton.y)
         return false;
     return true;
 }

@@ -15,7 +15,6 @@ void sprite_destroy(sprite *self)
     sfSprite_destroy(self->sf_sprite);
     if (self->sf_texture != NULL)
         sfTexture_destroy(self->sf_texture);
-    printf("REMOVE \n");
     tlist_remove(self->host->list_sprites, self->sprite_node);
     if (self->animator != NULL) {
         list_foreach(self->animator->callback_list, node) {
