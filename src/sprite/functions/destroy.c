@@ -27,6 +27,6 @@ void sprite_destroy(sprite *self)
         free(self->animator->map_animation);
         free(self->animator);
     }
-    tlist_pop(self->list_flag);
+    tlist_pop(self->list_flags);
     free(self);
 }

@@ -43,6 +43,7 @@ SRC = \
 	src/window/change_scene.c \
 	src/window/update.c \
 	src/window/new_scene.c \
+	src/window/destroy.c \
 	\
 	src/scene/add_clock_update_function.c \
 	src/scene/add_event_update_function.c \

@@ -8,6 +8,7 @@
 #include <Class/t_class_window.h>
 #include <Class/t_class_text.h>
 #include <stdlib.h>
+#include <t_string.h>
 
 void init_new_text(text *new_text, char *content, uint32_t integer_color)
 {
@@ -28,14 +29,16 @@ void init_new_text(text *new_text, char *content, uint32_t integer_color)
     new_text->set_origin_center = text_set_origin_center;
 }
 
-text *new_text(scene *scene_datas, char *content, char *font, uint32_t integer_color)
+text *new_text(scene *scene_datas, char *content
+    , char *font, uint32_t integer_color)
 {
     text *new_text = malloc(sizeof(text));
     t_list_node *new_text_node;
 
     if (new_text == NULL)
         return NULL;
-    if ((new_text_node = tlist_add(scene_datas->list_texts, new_text)) == NULL) {
+    if ((new_text_node = tlist_add(scene_datas->list_texts
+        , new_text)) == NULL || tstr_len(content) == 0) {
         free(new_text);
         return NULL;
     }

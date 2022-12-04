@@ -21,6 +21,8 @@ void window_clock_update(window *window_datas)
 
 void window_event_update(window *window_datas)
 {
+    if (window_datas->event.type == sfEvtClosed)
+        sfRenderWindow_close(window_datas->window);
     if (window_datas->actual_scene == NULL)
         return;
     scene *actual_scene = window_datas->actual_scene->value;

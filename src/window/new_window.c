@@ -15,6 +15,7 @@ void init_window(window *self)
     self->change_scene = window_change_scene;
     self->clock_update = window_clock_update;
     self->event_update = window_event_update;
+    self->destroy = window_destroy;
 }
 
 window *new_window(char *name, sfVideoMode mode)

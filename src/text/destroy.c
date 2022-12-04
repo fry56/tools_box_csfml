@@ -13,5 +13,5 @@ void text_destroy(text *self)
     tlist_remove(self->host->list_texts, self->text_node);
     sfText_destroy(self->sf_text);
     sfFont_destroy(self->sf_font);
-    tlist_pop(self->list_flag);
+    tlist_pop(self->list_flags);
 }

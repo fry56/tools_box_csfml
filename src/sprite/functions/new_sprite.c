@@ -27,7 +27,7 @@ void init_sprite(sprite *sprite)
     sprite->is_mouse_click = sprite_is_mouse_click;
     sprite->sf_sprite = sfSprite_create();
     sprite->events_list = tlist_new();
-    sprite->list_flag = tlist_new();
+    sprite->list_flags = tlist_new();
     sprite->have_flag = sprite_have_flag;
     sprite->add_flag = sprite_add_flag;
     sprite->remove_flag = sprite_remove_flag;

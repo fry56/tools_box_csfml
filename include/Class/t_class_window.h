@@ -53,6 +53,7 @@
         bool (*change_scene)(struct window *, char *scene_name);
         void (*clock_update)(struct window *);
         void (*event_update)(struct window *);
+        void (*destroy)(struct window *);
     } window;
 
     scene *window_new_scene(window *self, char *name
@@ -62,4 +63,5 @@
     window *new_window(char *name, sfVideoMode mode);
     void window_clock_update(window *window_datas);
     void window_event_update(window *window_datas);
+    void window_destroy(window *self);
 #endif //t_class_window

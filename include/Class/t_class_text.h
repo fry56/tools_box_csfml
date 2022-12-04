@@ -32,7 +32,8 @@
         void (*set_origin_center)(struct text *);
     } text;
 
-    text *new_text(scene *scene_datas, char *content, char *font, uint32_t integer_color);
+    text *new_text(scene *scene_datas, char *content
+        , char *font, uint32_t integer_color);
     void text_set_content(text *self, char *content);
     void text_set_font_color(text *self, uint32_t integer_color);
     void text_set_font_size(text *self, uint32_t font_size);
