@@ -219,10 +219,10 @@ void main(void)
     char *my_string_d = "That my new string D!";
     
     t_list *new_tlist = tlist_new();
-    t_list_node *my_new_element = tlist_add(new_tlist, my_string_a);
-    t_list_node *my_new_element = tlist_add(new_tlist, my_string_b);
-    t_list_node *my_new_element = tlist_add(new_tlist, my_string_c);
-    t_list_node *my_new_element = tlist_add(new_tlist, my_string_d);
+    tlist_add(new_tlist, my_string_a);
+    tlist_add(new_tlist, my_string_b);
+    tlist_add(new_tlist, my_string_c);
+    ttlist_add(new_tlist, my_string_d);
 }
 
 void delet(t_list *new_tlist) // <-- remove only t_list_node with the value = "That my new string C!"

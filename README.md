@@ -79,6 +79,13 @@ You can now build your project with the commande make.
     
 ## Documentation
 
+#### Introduction of concept :
+- [T_List](https://github.com/fry56/tools_box_csfml/blob/main/README_T_LIST.md)
+- [T_Map](https://github.com/fry56/tools_box_csfml/blob/main/README_T_MAP.md)
+- [POO in c](https://github.com/fry56/tools_box_csfml/blob/main/README_POO.md)
+- [Flag for Sprite / Text](https://github.com/fry56/tools_box_csfml/blob/main/README_FLAG.md)
+
+#### Lib function and explain : 
 - [Window](https://github.com/fry56/tools_box_csfml/tree/main/src/window)
 - [Scene](https://github.com/fry56/tools_box_csfml/tree/main/src/scene)
 - [Sprite](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite)
@@ -86,3 +93,5 @@ You can now build your project with the commande make.
     - [Animation](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite/animation)
     - [Events](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite/events)
 - [Text](https://github.com/fry56/tools_box_csfml/tree/main/src/text)
+
+#### Application exemple :
