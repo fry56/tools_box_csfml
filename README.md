@@ -80,8 +80,8 @@ You can now build your project with the commande make.
 ## Documentation
 
 - [Window](https://github.com/fry56/tools_box_csfml/tree/main/src/window)
-- [Scene](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite)
-- [Sprite](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite/functions)
+- [Scene](https://github.com/fry56/tools_box_csfml/tree/main/src/scene)
+- [Sprite](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite)
     - [Animator](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite/animator)
     - [Animation](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite/animation)
     - [Events](https://github.com/fry56/tools_box_csfml/tree/main/src/sprite/events)
