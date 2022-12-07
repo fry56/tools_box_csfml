@@ -104,10 +104,10 @@ void init_menu(scene *my_scene)
 {
     sprite *my_play_button = new_sprite(my_scene);
     my_play_button->set_texture(my_play_button, "b_play.png");
-    my_play_button->add_flag(my_play_button, "My_UI");
+    my_play_button->add_flag(my_play_button, "My_UI"); // <-- Sprite
     
     text *score_text = new_text(scene_datas, tstr_concat("Your score : 0", "assets/Font/Fruit Days.ttf", 4210752);
-    score_text->add_flag(score_text, "My_UI");
+    score_text->add_flag(score_text, "My_UI"); // <-- Text
 }
 ```
 
@@ -137,11 +137,11 @@ void init_menu(scene *my_scene)
     sprite *my_play_button = new_sprite(my_scene);
     my_play_button->set_texture(my_play_button, "b_play.png");
     my_play_button->add_flag(my_play_button, "My_UI");
-    my_play_button->remove_flag(my_play_button, "My_UI");
+    my_play_button->remove_flag(my_play_button, "My_UI"); // <-- Sprite
     
     text *score_text = new_text(scene_datas, tstr_concat("Your score : 0", "assets/Font/Fruit Days.ttf", 4210752);
     score_text->add_flag(score_text, "My_UI");
-    score_text->remove_flag(score_text, "My_UI");
+    score_text->remove_flag(score_text, "My_UI"); // <-- Text
 }
 ```
 
@@ -173,13 +173,13 @@ void destro_menu(scene *my_scene)
     
     list_foreach(my_scene->list_texts, node) { // traveled all text of the scene
         temp_text = node->value;
-        if (temp_text->have_flag(temp_text, "My_UI")) {
+        if (temp_text->have_flag(temp_text, "My_UI")) { // <-- Sprite
             temp_text->destroy(temp_text);
         }
     }
     list_foreach(my_scene->list_sprites, node) { // traveled all sprite of the scene
         temp_sprite = node->value;
-        if (temp_sprite->have_flag(temp_sprite, "My_UI")) {
+        if (temp_sprite->have_flag(temp_sprite, "My_UI")) { // <-- Text
             temp_sprite->destroy(temp_sprite);
         }
     }
