@@ -14,6 +14,7 @@ SRC = \
 	src/sprite/functions/add_flag.c \
 	src/sprite/functions/remove_flag.c \
 	src/sprite/functions/have_flag.c \
+	src/sprite/functions/set_origin_center.c \
 	\
 	src/sprite/animator/new_animator.c \
 	src/sprite/animator/play_animation.c \

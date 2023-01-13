@@ -5,9 +5,9 @@
 ** desc
 */
 
-#include <t_class_window.h>
-#include <t_class_sprite.h>
-#include <t_class_text.h>
+#include "Class/t_window.h"
+#include "Class/t_sprite.h"
+#include "Class/t_text.h"
 
 void clear_sprite(scene *temp)
 {
@@ -31,9 +31,15 @@ void clear_text(scene *temp)
 
 void window_destroy(window *self)
 {
-    map_foreach(self->scenes_map, node) {
-        clear_sprite(node->value);
-        clear_text(node->value);
+    for (u32 i = 0; i < self->scenes_map->size; ++i) {
+        if (self->scenes_map->map[i] == NULL)
+            continue;
+        clear_sprite(self->scenes_map->map[i]->value);
+        clear_text(self->scenes_map->map[i]->value);
+        list_foreach(self->scenes_map->map[i]->childs_node, node) {
+            clear_sprite(node->value);
+            clear_text(node->value);
+        }
     }
     sfClock_destroy(self->global_clock);
     sfRenderWindow_destroy(self->window);

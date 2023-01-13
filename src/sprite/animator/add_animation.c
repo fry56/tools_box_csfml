@@ -5,13 +5,13 @@
 ** desc
 */
 
-#include <t_class_sprite_animator.h>
-#include <t_class_sprite_animation.h>
+#include "Class/t_sprite_animator.h"
+#include "Class/t_sprite_animation.h"
 #include <t_mem.h>
 
 bool animator_add_animation(animator *self, animation *new_animation)
 {
-    t_map_node  *animation = tmap_add(self->map_animation
+    t_hashmap_node *animation = thashmap_add(self->map_animation
             , new_animation->name
             , new_animation);
     if (animation == NULL)

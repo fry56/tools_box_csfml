@@ -5,19 +5,19 @@
 ** desc
 */
 
-#include <t_class_sprite_animator.h>
-#include <t_class_sprite_animation.h>
+#include "Class/t_sprite_animator.h"
+#include "Class/t_sprite_animation.h"
 #include <t_string.h>
 #include <t_mem.h>
 
 bool animator_remove_animation(animator *self, char *animation_name)
 {
-    t_map_node *animation;
+    t_hashmap_node *animation;
 
-    if ((animation = tmap_get(self->map_animation, animation_name)) == NULL)
+    if ((animation = thashmap_get(self->map_animation, animation_name)) == NULL)
         return false;
     if (self->played_animation == animation
         || self->default_animation == animation)
         return false;
-    return tmap_remove(self->map_animation, animation_name);
+    return thashmap_remove(self->map_animation, animation_name);
 }

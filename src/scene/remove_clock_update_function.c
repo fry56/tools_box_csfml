@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include <t_class_sprite.h>
-#include <t_class_window.h>
+#include "Class/t_sprite.h"
+#include "Class/t_window.h"
 
 bool scene_remove_clock_update_function(scene *self
     , void (*clock_update_function)(scene *scene_datas, sfClock *clock))

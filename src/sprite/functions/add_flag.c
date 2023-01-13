@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <t_class_sprite.h>
+#include "Class/t_sprite.h"
 
 bool sprite_add_flag(sprite *self, char *flag)
 {

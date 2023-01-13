@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <t_class_sprite.h>
+#include "Class/t_sprite.h"
 #include <t_string.h>
 
 bool sprite_remove_flag(sprite *self, char *flag)

@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <t_class_sprite_animation.h>
+#include "Class/t_sprite_animation.h"
 #include <t_mem.h>
 #include <t_list.h>
 

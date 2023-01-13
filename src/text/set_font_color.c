@@ -4,11 +4,11 @@
 ** File description:
 ** desc
 */
+#include "Utils/t_rgb.h"
+#include "Class/t_text.h"
 
-#include <t_class_text.h>
-
-void text_set_font_color(text *self, uint32_t integer_color)
+void text_set_font_color(text *self, rgb rgb)
 {
-    self->sf_color = sfColor_fromInteger(integer_color);
+    self->sf_color = sfColor_fromRGB(rgb.red, rgb.green, rgb.blue);
     sfText_setColor(self->sf_text, self->sf_color);
 }

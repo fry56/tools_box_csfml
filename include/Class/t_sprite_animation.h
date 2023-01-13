@@ -9,7 +9,7 @@
 
     #include <stdbool.h>
     #include <SFML/Graphics.h>
-    #include <t_class_sprite.h>
+    #include "t_sprite.h"
 
     bool animation_add_sprite(animation *self, char *path);
     void animation_destroy(animation *self);

@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <t_class_window.h>
+#include "Class/t_window.h"
 #include <stdlib.h>
 
 void init_window(window *self)
@@ -31,7 +31,7 @@ window *new_window(char *name, sfVideoMode mode)
         free(new_window);
         return NULL;
     }
-    new_window->scenes_map = tmap_new();
+    new_window->scenes_map = thashmap_new(1024);
     if (new_window->scenes_map == NULL) {
         sfRenderWindow_destroy(new_window->window);
         free(new_window);

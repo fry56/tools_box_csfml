@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <t_class_sprite.h>
+#include "Class/t_sprite.h"
 
 void sprite_use_event(sprite *self, window *window_datas)
 {

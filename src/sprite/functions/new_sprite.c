@@ -5,9 +5,9 @@
 ** desc
 */
 
-#include <t_class_sprite.h>
+#include "Class/t_sprite.h"
 #include <stdlib.h>
-#include <t_class_sprite_animator.h>
+#include "Class/t_sprite_animator.h"
 #include <t_list.h>
 #include <t_map.h>
 
@@ -16,6 +16,7 @@ void init_sprite(sprite *sprite)
     sprite->sf_texture = NULL;
     sprite->animator = NULL;
     sprite->set_pos = sprite_set_pos;
+    sprite->set_origin_center = sprite_set_origin_center;
     sprite->set_texture = sprite_set_texture;
     sprite->new_animator = animator_new_animator;
     sprite->destroy = sprite_destroy;
@@ -31,7 +32,7 @@ void init_sprite(sprite *sprite)
     sprite->have_flag = sprite_have_flag;
     sprite->add_flag = sprite_add_flag;
     sprite->remove_flag = sprite_remove_flag;
-    sprite->map_datas = tmap_new();
+    sprite->map_datas = thashmap_new(1024);
 }
 
 sprite *new_sprite(scene *scene_datas)
@@ -49,5 +50,6 @@ sprite *new_sprite(scene *scene_datas)
     new_sprite->host = scene_datas;
     new_sprite->sprite_node = new_sprite_node;
     init_sprite(new_sprite);
+    new_sprite->set_origin_center(new_sprite);
     return new_sprite;
 }

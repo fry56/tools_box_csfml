@@ -5,14 +5,14 @@
 ** desc
 */
 
-#include <t_class_sprite_animator.h>
+#include "Class/t_sprite_animator.h"
 #include <stdlib.h>
 #include <t_map.h>
 
 void init_animator(animator *animator)
 {
     animator->animation_frame = 0;
-    animator->map_animation = tmap_new();
+    animator->map_animation = thashmap_new(1024);
     animator->callback_list = tlist_new();
     animator->played_animation = NULL;
     animator->default_animation = NULL;

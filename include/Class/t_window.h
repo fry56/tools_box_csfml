@@ -9,8 +9,8 @@
 
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
-    #include <t_map.h>
-    #include <t_list.h>
+    #include "t_list.h"
+    #include "t_hashmap.h"
 
     typedef struct scene {
         bool is_active;
@@ -19,7 +19,7 @@
         t_list *list_texts;
         t_list *list_clock_update_functions;
         t_list *list_event_update_functions;
-        t_map *map_datas;
+        t_hashmap *map_datas;
 
         bool (*add_clock_update_function)(struct scene *
             , void (*clock_update_function)
@@ -43,8 +43,9 @@
         sfVideoMode mode;
         sfRenderWindow *window;
         sfEvent event;
-        t_map *scenes_map;
-        t_map_node *actual_scene;
+
+        t_hashmap *scenes_map;
+        t_hashmap_node *actual_scene;
         sfClock *global_clock;
 
         scene *(*new_scene)(struct window *, char *name

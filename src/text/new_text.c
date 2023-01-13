@@ -5,15 +5,15 @@
 ** desc
 */
 
-#include <t_class_window.h>
-#include <t_class_text.h>
+#include "Class/t_window.h"
+#include "Class/t_text.h"
 #include <stdlib.h>
 #include <t_string.h>
 
-void init_new_text(text *new_text, char *content, uint32_t integer_color)
+void init_new_text(text *new_text, char *content, rgb rgb)
 {
     new_text->sf_text = sfText_create();
-    new_text->sf_color = sfColor_fromInteger(integer_color);
+    new_text->sf_color = sfColor_fromRGB(rgb.red, rgb.green, rgb.blue);
     sfText_setFont(new_text->sf_text, new_text->sf_font);
     sfText_setString(new_text->sf_text, content);
     sfText_setColor(new_text->sf_text, new_text->sf_color);
@@ -30,7 +30,7 @@ void init_new_text(text *new_text, char *content, uint32_t integer_color)
 }
 
 text *new_text(scene *scene_datas, char *content
-    , char *font, uint32_t integer_color)
+    , char *font, rgb rgb)
 {
     text *new_text = malloc(sizeof(text));
     t_list_node *new_text_node;
@@ -50,6 +50,6 @@ text *new_text(scene *scene_datas, char *content
     }
     new_text->host = scene_datas;
     new_text->text_node = new_text_node;
-    init_new_text(new_text, content, integer_color);
+    init_new_text(new_text, content, rgb);
     return new_text;
 }

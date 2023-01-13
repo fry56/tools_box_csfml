@@ -5,12 +5,11 @@
 ** desc
 */
 
-#include <t_class_sprite_animator.h>
-#include <t_class_sprite_animation.h>
+#include "Class/t_sprite_animator.h"
+#include "Class/t_sprite_animation.h"
 #include <t_string.h>
 
-t_map_node *animator_have_animation(animator *self, char *animation_name)
+t_hashmap_node *animator_have_animation(animator *self, char *animation_name)
 {
-    t_map_node *animation = tmap_get(self->map_animation, animation_name);
-    return animation;
+    return thashmap_get(self->map_animation, animation_name);
 }

@@ -7,7 +7,7 @@
 #ifndef t_class_scene
     #define t_class_scene
 
-    #include "t_class_window.h"
+    #include "t_window.h"
 
     bool scene_remove_clock_update_function(scene *self
         , void (*clock_update_function)
