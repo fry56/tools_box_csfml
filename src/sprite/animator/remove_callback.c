@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
-#include <Class/t_class_animator_callback.h>
+#include <t_class_sprite.h>
+#include <t_class_animator_callback.h>
 #include <stdlib.h>
 #include <t_string.h>
 

@@ -8,7 +8,7 @@
     #define t_class_sprite_animator
 
     #include <stdbool.h>
-    #include "t_class_sprite_animation.h"
+    #include <t_class_sprite_animation.h>
 
     int animator_update_frame(animator *self, sfClock *clock);
     bool animator_play_animation(animator *self, char *animation_name);

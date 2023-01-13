@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
-#include <Class/t_class_window.h>
+#include <t_class_sprite.h>
+#include <t_class_window.h>
 
 void window_clock_update(window *window_datas)
 {

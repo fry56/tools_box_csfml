@@ -5,9 +5,8 @@
 ** desc
 */
 
-#include <Class/t_class_sprite_animator.h>
-#include <Class/t_class_sprite_animation.h>
-#include <t_string.h>
+#include <t_class_sprite_animator.h>
+#include <t_class_sprite_animation.h>
 #include <t_mem.h>
 
 bool animator_add_animation(animator *self, animation *new_animation)

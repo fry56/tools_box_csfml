@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <Class/t_class_window.h>
+#include <t_class_window.h>
 #include <stdlib.h>
 
 void init_window(window *self)

@@ -5,9 +5,9 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
+#include <t_class_sprite.h>
 #include <stdlib.h>
-#include <Class/t_class_sprite_animator.h>
+#include <t_class_sprite_animator.h>
 #include <t_list.h>
 #include <t_map.h>
 

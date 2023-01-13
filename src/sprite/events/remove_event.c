@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
+#include <t_class_sprite.h>
 
 bool sprite_remove_event(sprite *self, tsize_t index)
 {

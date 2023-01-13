@@ -10,7 +10,7 @@
     #include <SFML/Graphics.h>
     #include <t_ctype.h>
     #include <t_list.h>
-    #include "t_class_scene.h"
+    #include <t_class_scene.h>
 
     typedef struct text {
         scene *host;

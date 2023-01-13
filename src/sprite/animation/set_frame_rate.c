@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <Class/t_class_sprite_animation.h>
+#include <t_class_sprite_animation.h>
 
 bool animation_set_frame_rate(animation *self, float frame_rate)
 {

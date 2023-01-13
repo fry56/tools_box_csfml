@@ -5,9 +5,9 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
+#include <t_class_sprite.h>
 #include <stdlib.h>
-#include <Class/t_class_window.h>
+#include <t_class_window.h>
 
 bool sprite_add_event(sprite *self, sfEventType type
     , void (*event_function)(sprite *sprite_pointer

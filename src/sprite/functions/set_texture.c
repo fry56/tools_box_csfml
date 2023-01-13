@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
-#include <Class/t_class_sprite.h>
+#include <t_class_sprite.h>
 
 bool sprite_set_texture(sprite *self, char *path)
 {

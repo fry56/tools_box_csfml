@@ -7,7 +7,7 @@
 #ifndef t_class_animator_callback
     #define t_class_animator_callback
 
-    #include <Class/t_class_sprite.h>
+    #include <t_class_sprite.h>
 
     typedef struct callback {
         char *animation_name;

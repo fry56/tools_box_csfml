@@ -12,7 +12,7 @@
     #include <t_map.h>
     #include <t_list.h>
     #include <t_ctype.h>
-    #include "t_class_window.h"
+    #include <t_class_window.h>
 
     typedef struct animation {
         char *name;

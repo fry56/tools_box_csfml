@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
+#include <t_class_sprite.h>
 
 bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas)
 {

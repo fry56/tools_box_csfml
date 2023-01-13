@@ -4,7 +4,7 @@
 ** File description:
 ** desc
 */
-#include <Class/t_class_sprite.h>
+#include <t_class_sprite.h>
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 

@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include <Class/t_class_sprite_animator.h>
-#include <Class/t_class_sprite_animation.h>
+#include <t_class_sprite_animator.h>
+#include <t_class_sprite_animation.h>
 #include <t_string.h>
 
 t_map_node *animator_have_animation(animator *self, char *animation_name)

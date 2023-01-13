@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include <Class/t_class_text.h>
+#include <t_class_text.h>
 
 void text_set_origin_center(text *self)
 {

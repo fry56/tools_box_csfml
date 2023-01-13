@@ -5,10 +5,10 @@
 ** desc
 */
 
-#include <Class/t_class_sprite.h>
+#include <t_class_sprite.h>
 #include <stdio.h>
 #include <t_list.h>
-#include <Class/t_class_window.h>
+#include <t_class_window.h>
 
 void update_sprite_animator(sprite *sprite, sfClock *clock)
 {
