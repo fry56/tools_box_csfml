@@ -5,10 +5,10 @@
 ** desc
 */
 
-#include "Class/t_window.h"
+#include <Class/t_window.h>
 #include <stdlib.h>
-#include "Class/t_scene.h"
-#include "Class/t_sprite.h"
+#include <Class/t_scene.h>
+#include <Class/t_sprite.h>
 
 void init_new_scene(scene *new_scene, void (*load)(struct scene *)
     , void (*unload)(struct scene *))

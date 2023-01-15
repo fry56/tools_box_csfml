@@ -6,9 +6,9 @@
 */
 
 
-#include "Class/t_sprite.h"
+#include <Class/t_sprite.h>
 #include <stdio.h>
-#include "Class/t_window.h"
+#include <Class/t_window.h>
 
 bool scene_add_event_update_function(scene *self
     , void (*event_update_function)(scene *scene_datas, sfClock *clock))

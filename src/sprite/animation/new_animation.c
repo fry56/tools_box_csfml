@@ -5,18 +5,16 @@
 ** desc
 */
 
-#include "Class/t_sprite_animation.h"
+#include <Class/t_sprite_animation.h>
 #include <stdlib.h>
-#include <t_list.h>
 
 void init_animation(animation *animation)
 {
-    animation->sprites_sf_texture_list = tlist_new();
-    animation->nbr_sprites = &(animation->sprites_sf_texture_list->length);
-    animation->add_sprite = animation_add_sprite;
+    animation->auto_gen_frame = animation_auto_gen_frame;
+    animation->add_frame = animation_add_frame;
+    animation->remove_frame = animation_remove_frame;
     animation->set_loop = animation_set_loop;
     animation->set_frame_rate = animation_set_frame_rate;
-    animation->destroy = animation_destroy;
 }
 
 animation *new_animation(char *name, bool loop, float frame_rate)
@@ -27,6 +25,7 @@ animation *new_animation(char *name, bool loop, float frame_rate)
     new_animation->name = name;
     new_animation->loop = loop;
     new_animation->frame_rate = frame_rate;
+    new_animation->list_frame_rect = tlist_new();
     init_animation(new_animation);
     return new_animation;
 }

@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include "Class/t_text.h"
-#include "Class/t_scene.h"
+#include <Class/t_text.h>
+#include <Class/t_scene.h>
 
 void text_destroy(text *self)
 {

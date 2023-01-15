@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include "Class/t_text.h"
+#include <Class/t_text.h>
 
 bool text_add_flag(text *self, char *flag)
 {

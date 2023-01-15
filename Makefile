@@ -6,15 +6,15 @@
 ##
 
 SRC = \
-	src/sprite/functions/new_sprite.c \
-	src/sprite/functions/set_pos.c \
-	src/sprite/functions/set_texture.c \
-	src/sprite/functions/destroy.c \
-	src/sprite/functions/update.c \
-	src/sprite/functions/add_flag.c \
-	src/sprite/functions/remove_flag.c \
-	src/sprite/functions/have_flag.c \
-	src/sprite/functions/set_origin_center.c \
+	src/sprite/new_sprite.c \
+	src/sprite/set_pos.c \
+	src/sprite/set_texture.c \
+	src/sprite/destroy.c \
+	src/sprite/update.c \
+	src/sprite/add_flag.c \
+	src/sprite/remove_flag.c \
+	src/sprite/have_flag.c \
+	src/sprite/set_origin_center.c \
 	\
 	src/sprite/animator/new_animator.c \
 	src/sprite/animator/play_animation.c \
@@ -27,11 +27,13 @@ SRC = \
 	src/sprite/animator/add_callback.c \
 	src/sprite/animator/remove_callback.c \
 	\
-	src/sprite/animation/add_sprite.c \
 	src/sprite/animation/new_animation.c \
-	src/sprite/animation/destroy.c \
 	src/sprite/animation/set_loop.c \
 	src/sprite/animation/set_frame_rate.c \
+	src/sprite/animation/remove_frame.c \
+	src/sprite/animation/auto_gen_frame.c \
+	src/sprite/animation/add_frame.c \
+	src/sprite/animation/destroy.c \
 	\
 	src/sprite/events/add_event.c \
 	src/sprite/events/remove_event.c \

@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include "Class/t_window.h"
-#include "Class/t_text.h"
+#include <Class/t_window.h>
+#include <Class/t_text.h>
 #include <stdlib.h>
 #include <t_string.h>
 

@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include "Class/t_sprite_animation.h"
+#include <Class/t_sprite_animation.h>
 
 void animation_set_loop(animation *self, bool loop)
 {

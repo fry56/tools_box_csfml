@@ -8,8 +8,8 @@
 #include "Class/t_sprite.h"
 #include <stdlib.h>
 #include "Class/t_sprite_animator.h"
-#include <t_list.h>
-#include <t_map.h>
+#include "t_list.h"
+#include "t_map.h"
 
 void init_sprite(sprite *sprite)
 {
@@ -32,7 +32,6 @@ void init_sprite(sprite *sprite)
     sprite->have_flag = sprite_have_flag;
     sprite->add_flag = sprite_add_flag;
     sprite->remove_flag = sprite_remove_flag;
-    sprite->map_datas = thashmap_new(1024);
 }
 
 sprite *new_sprite(scene *scene_datas)

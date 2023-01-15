@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include "Class/t_sprite.h"
-#include "Class/t_animator_callback.h"
+#include <Class/t_sprite.h>
+#include <Class/t_animator_callback.h>
 #include <stdlib.h>
 
 bool animator_add_callback(animator *self, char *animation_name

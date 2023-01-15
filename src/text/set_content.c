@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include "Class/t_text.h"
+#include <Class/t_text.h>
 #include <t_string.h>
 
 void text_set_content(text *self, char *content)

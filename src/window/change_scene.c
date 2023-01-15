@@ -5,7 +5,7 @@
 ** desc
 */
 
-#include "Class/t_window.h"
+#include <Class/t_window.h>
 #include <stdlib.h>
 
 bool window_change_scene(window *self, char *scene_name)

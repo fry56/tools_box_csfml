@@ -5,9 +5,8 @@
 ** desc
 */
 
-#include "Class/t_sprite_animator.h"
+#include <Class/t_sprite_animator.h>
 #include <stdlib.h>
-#include <t_map.h>
 
 void init_animator(animator *animator)
 {

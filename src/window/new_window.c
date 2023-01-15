@@ -5,12 +5,15 @@
 ** desc
 */
 
-#include "Class/t_window.h"
+#include <Class/t_window.h>
 #include <stdlib.h>
 
 void init_window(window *self)
 {
+    sfRenderWindow_setFramerateLimit(self->window, 60);
     self->actual_scene = NULL;
+    self->last_tick = 0;
+    self->deltatime = 0;
     self->new_scene = window_new_scene;
     self->change_scene = window_change_scene;
     self->clock_update = window_clock_update;

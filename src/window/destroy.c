@@ -5,9 +5,9 @@
 ** desc
 */
 
-#include "Class/t_window.h"
-#include "Class/t_sprite.h"
-#include "Class/t_text.h"
+#include <Class/t_window.h>
+#include <Class/t_sprite.h>
+#include <Class/t_text.h>
 
 void clear_sprite(scene *temp)
 {

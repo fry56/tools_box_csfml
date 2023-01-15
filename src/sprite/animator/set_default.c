@@ -5,9 +5,8 @@
 ** desc
 */
 
-#include "Class/t_sprite_animator.h"
-#include "Class/t_sprite_animation.h"
-#include <t_string.h>
+#include <Class/t_sprite_animator.h>
+#include <Class/t_sprite_animation.h>
 #include <t_mem.h>
 
 bool animator_set_default(animator *self, char *animation_name)

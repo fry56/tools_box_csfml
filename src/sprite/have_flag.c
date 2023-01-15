@@ -6,7 +6,7 @@
 */
 
 #include "Class/t_sprite.h"
-#include <t_string.h>
+#include "t_string.h"
 
 bool sprite_have_flag(sprite *self, char *flag)
 {

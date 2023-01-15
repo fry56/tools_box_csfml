@@ -5,10 +5,8 @@
 ** desc
 */
 
-#include "Class/t_sprite_animator.h"
-#include "Class/t_sprite_animation.h"
-#include <t_string.h>
-#include <t_mem.h>
+#include <Class/t_sprite_animator.h>
+#include <Class/t_sprite_animation.h>
 
 bool animator_remove_animation(animator *self, char *animation_name)
 {

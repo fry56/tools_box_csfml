@@ -18,19 +18,20 @@
     typedef struct animation {
         char *name;
         bool loop;
-        tsize_t *nbr_sprites;
-        t_list *sprites_sf_texture_list;
+        t_list *list_frame_rect;
         float frame_rate;
 
-        bool (*add_sprite)(struct animation *, char *path);
-        void (*destroy)(struct animation *);
         void (*set_loop)(struct animation *, bool loop);
         bool (*set_frame_rate)(struct animation *, float frame_rate);
+        bool (*auto_gen_frame)(struct animation *, int nbr_sprites
+                , int nbr_sprite_per_line, sfIntRect rect_start);
+        bool (*add_frame)(struct animation *, sfIntRect rect);
+        bool (*remove_frame)(struct animation *, size_t index);
     } animation;
 
     typedef struct animator {
         struct sprite *host;
-        tsize_t animation_frame;
+        int animation_frame;
         t_hashmap_node *played_animation;
         t_hashmap *map_animation;
         t_hashmap_node *default_animation;
@@ -61,7 +62,7 @@
         sfVector2f pos;
 
         t_list *list_flags;
-        t_hashmap *map_datas;
+        void *object_datas;
 
         animator *animator;
         t_list *events_list;

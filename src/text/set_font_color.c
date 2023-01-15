@@ -4,8 +4,8 @@
 ** File description:
 ** desc
 */
-#include "Utils/t_rgb.h"
-#include "Class/t_text.h"
+#include <Utils/t_rgb.h>
+#include <Class/t_text.h>
 
 void text_set_font_color(text *self, rgb rgb)
 {
