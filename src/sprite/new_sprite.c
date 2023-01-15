@@ -34,7 +34,8 @@ void init_sprite(sprite *sprite)
     sprite->remove_flag = sprite_remove_flag;
 }
 
-t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite, int z_index)
+t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite
+    , int z_index)
 {
     list_foreach(list_sprites, node) {
         if (((sprite *)node->value)->z_index > z_index)

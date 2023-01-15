@@ -7,7 +7,7 @@
 #ifndef t_class_text
     #define t_class_text
 
-#include "Utils/t_rgb.h"
+    #include "Utils/t_rgb.h"
     #include <SFML/Graphics.h>
     #include "t_ctype.h"
     #include "t_list.h"
