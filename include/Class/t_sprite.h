@@ -60,6 +60,7 @@
 
         sfTexture *sf_texture;
         sfVector2f pos;
+        int z_index;
 
         t_list *list_flags;
         void *object_datas;
@@ -94,7 +95,7 @@
     bool sprite_set_texture(sprite *self, char *path);
     void sprite_set_origin_center(sprite *self);
     void sprite_destroy(sprite *self);
-    sprite *new_sprite(scene *scene_datas);
+    sprite *new_sprite(scene *scene_datas, char *texture_path, int z_index);
     void sprite_use_event(sprite *self, window *window_datas);
     bool sprite_remove_event(sprite *self, tsize_t index);
     void sprite_remove_events_by_type(sprite *self, sfEvent *event_data);
