@@ -35,8 +35,10 @@ SRC = \
 	src/sprite/animation/add_frame.c \
 	src/sprite/animation/destroy.c \
 	\
-	src/sprite/events/add_event.c \
-	src/sprite/events/remove_event.c \
+	src/sprite/events/add_clock_update_function.c \
+	src/sprite/events/remove_clock_update_function.c \
+	src/sprite/events/add_event_update_function.c \
+	src/sprite/events/remove_event_update_function.c \
 	src/sprite/events/use_event.c \
 	\
 	src/sprite/events/handling/is_mouse_over.c \
@@ -50,8 +52,17 @@ SRC = \
 	\
 	src/scene/add_clock_update_function.c \
 	src/scene/add_event_update_function.c \
+	\
 	src/scene/remove_clock_update_function.c \
 	src/scene/remove_event_update_function.c \
+	\
+	src/scene/key/add_key_bind.c \
+	src/scene/key/get_key_press_timestamp.c \
+	src/scene/key/is_key_bind.c \
+	src/scene/key/is_key_press.c \
+	src/scene/key/remove_key_bind.c \
+	src/scene/key/get_key.c \
+	src/scene/key/update_key.c \
 	\
 	src/text/destroy.c \
 	src/text/new_text.c \
@@ -69,8 +80,8 @@ OBJ = $(SRC:.c=.o)
 GCC = gcc
 
 INCLUDE_FLAGS = \
-	-I include/ \
-	-I ../tools_box/include/
+	-I includes/ \
+	-I ../tools_box/includes/
 
 C_WARNING_FLAGS = -Wextra -Wall
 C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS)

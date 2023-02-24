@@ -11,6 +11,26 @@
 #include "t_list.h"
 #include "t_map.h"
 
+static void init_new_scene_event(sprite *sprite)
+{
+    sprite->list_event_update_functions = tlist_new();
+    sprite->add_event_update_function
+            = sprite_add_event_update_function;
+    sprite->remove_event_update_function
+            = sprite_remove_event_update_function;
+    sprite->add_event_update_function(sprite, event_update_sprite);
+}
+
+static void init_new_scene_clock(sprite *sprite)
+{
+    sprite->list_clock_update_functions = tlist_new();
+    sprite->add_clock_update_function
+            = sprite_add_clock_update_function;
+    sprite->remove_clock_update_function
+            = sprite_remove_clock_update_function;
+    sprite->add_clock_update_function(sprite, clock_update_sprite);
+}
+
 void init_sprite(sprite *sprite)
 {
     sprite->sf_texture = NULL;
@@ -20,14 +40,13 @@ void init_sprite(sprite *sprite)
     sprite->set_texture = sprite_set_texture;
     sprite->new_animator = animator_new_animator;
     sprite->destroy = sprite_destroy;
-    sprite->use_event = sprite_use_event;
     sprite->remove_event = sprite_remove_event;
     sprite->remove_events_by_type = sprite_remove_events_by_type;
-    sprite->add_event = sprite_add_event;
     sprite->is_mouse_over = sprite_is_mouse_over;
     sprite->is_mouse_click = sprite_is_mouse_click;
     sprite->sf_sprite = sfSprite_create();
-    sprite->events_list = tlist_new();
+    sprite->list_event_update_functions = tlist_new();
+    sprite->list_clock_update_functions = tlist_new();
     sprite->list_flags = tlist_new();
     sprite->have_flag = sprite_have_flag;
     sprite->add_flag = sprite_add_flag;

@@ -21,7 +21,7 @@ bool animator_add_callback(animator *self, char *animation_name
         return false;
     new_callback->animation_name = animation_name;
     new_callback->callback = callback_func;
-    if (tlist_add(self->callback_list, new_callback) == NULL) {
+    if (tlist_add(self->list_callback, new_callback) == NULL) {
         free(new_callback);
         return false;
     }

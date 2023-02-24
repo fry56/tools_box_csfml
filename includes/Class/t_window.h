@@ -11,6 +11,7 @@
     #include <SFML/Audio.h>
     #include <t_list.h>
     #include <t_hashmap.h>
+    #include <Utils/t_key.h>
 
     typedef struct scene {
         bool is_active;
@@ -19,6 +20,7 @@
         t_list *list_texts;
         t_list *list_clock_update_functions;
         t_list *list_event_update_functions;
+        t_list *list_keys;
         t_hashmap *map_datas;
 
         bool (*add_clock_update_function)(struct scene *
@@ -34,6 +36,13 @@
         bool (*remove_event_update_function)(struct scene *
             , void (*event_update_function)
             (struct scene *scene_datas, struct window *window_datas));
+
+        bool (*is_key_bind)(struct scene *, sfKeyCode key);
+        bool (*add_key_bind)(struct scene *, sfKeyCode key);
+        key_bind *(*get_key)(struct scene *, sfKeyCode key);
+        tsize_t (*get_key_press_timestamp)(struct scene *, sfKeyCode key);
+        bool (*is_key_press)(struct scene *, sfKeyCode key);
+        bool (*key_press)(struct scene *, sfKeyCode key);
 
         void (*load)(struct scene *);
         void (*unload)(struct scene *);

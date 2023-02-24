@@ -11,7 +11,7 @@
 #include <Class/t_window.h>
 
 bool scene_add_event_update_function(scene *self
-    , void (*event_update_function)(scene *scene_datas, sfClock *clock))
+    , void (*event_update_function)(scene *scene_datas, window *window_datas))
 {
     if (tlist_add(self->list_event_update_functions
             , event_update_function) == NULL)

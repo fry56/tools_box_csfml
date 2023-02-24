@@ -14,12 +14,12 @@ bool animator_remove_callback(animator *self, tsize_t index)
 {
     tsize_t i = 0;
 
-    if (self->callback_list->length < index)
+    if (self->list_callback->length < index)
         return false;
-    list_foreach(self->callback_list, node) {
+    list_foreach(self->list_callback, node) {
         if (i == index) {
             free(node->value);
-            tlist_remove(self->callback_list, node);
+            tlist_remove(self->list_callback, node);
             break;
         }
         i++;
@@ -29,10 +29,10 @@ bool animator_remove_callback(animator *self, tsize_t index)
 
 void animator_remove_callback_by_name(animator *self, char *animation_name)
 {
-    list_foreach(self->callback_list, node) {
+    list_foreach(self->list_callback, node) {
         if (tstr_cmp(((callback *)node->value)->animation_name
             , animation_name) == 0) {
-            tlist_remove(self->callback_list, node);
+            tlist_remove(self->list_callback, node);
         }
     }
 }

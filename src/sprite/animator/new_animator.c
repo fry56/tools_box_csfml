@@ -12,7 +12,7 @@ void init_animator(animator *animator)
 {
     animator->animation_frame = 0;
     animator->map_animation = thashmap_new(1024);
-    animator->callback_list = tlist_new();
+    animator->list_callback = tlist_new();
     animator->played_animation = NULL;
     animator->default_animation = NULL;
     animator->last_clock_update = 1000;

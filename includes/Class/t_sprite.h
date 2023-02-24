@@ -35,7 +35,7 @@
         t_hashmap_node *played_animation;
         t_hashmap *map_animation;
         t_hashmap_node *default_animation;
-        t_list *callback_list;
+        t_list *list_callback;
         int64_t last_clock_update;
 
         bool (*play_animation)(struct animator *, char *animation_name);
@@ -63,10 +63,11 @@
         int z_index;
 
         t_list *list_flags;
-        void *object_datas;
+        void *sprite_datas;
 
         animator *animator;
-        t_list *events_list;
+        t_list *list_clock_update_functions;
+        t_list *list_event_update_functions;
 
         bool (*have_flag)(struct sprite *, char *flag);
         bool (*remove_flag)(struct sprite *, char *flag);
@@ -78,18 +79,26 @@
         void (*set_origin_center)(struct sprite *);
         bool (*set_texture)(struct sprite *, char *path);
         void (*destroy)(struct sprite *);
-        void (*use_event)(struct sprite *, window *window_datas);
         bool (*remove_event)(struct sprite *, tsize_t index);
         void (*remove_events_by_type)(struct sprite *, sfEvent *event_data);
         bool (*add_event)(struct sprite *, sfEventType type
                 , void (*event_function)(struct sprite *
                 , window *window_datas));
-    } sprite;
 
-    typedef struct event {
-        sfEventType type;
-        void (*event_function)(sprite *self, window *window_datas);
-    } event;
+        bool (*add_clock_update_function)(struct sprite *
+                , void (*clock_update_function)
+                (struct sprite *sprite_datas, sfClock *clock));
+        bool (*remove_clock_update_function)(struct sprite *
+                , void (*clock_update_function)
+                (struct sprite *sprite_datas, sfClock *clock));
+
+        bool (*add_event_update_function)(struct sprite *
+                , void (*event_update_function)
+                (struct sprite *sprite_datas, struct window *window_datas));
+        bool (*remove_event_update_function)(struct sprite *
+                , void (*event_update_function)
+                (struct sprite *sprite_datas, struct window *window_datas));
+    } sprite;
 
     void sprite_set_pos(sprite *self, float x, float y);
     bool sprite_set_texture(sprite *self, char *path);
@@ -97,11 +106,6 @@
     void sprite_destroy(sprite *self);
     sprite *new_sprite(scene *scene_datas, char *texture_path, int z_index);
     void sprite_use_event(sprite *self, window *window_datas);
-    bool sprite_remove_event(sprite *self, tsize_t index);
-    void sprite_remove_events_by_type(sprite *self, sfEvent *event_data);
-    bool sprite_add_event(sprite *self, sfEventType type
-        , void (*event_function)(sprite *sprite_pointer
-        , window *window_datas));
     bool sprite_is_mouse_over(sprite *self, sfEvent *event_datas);
     bool sprite_is_mouse_click(sprite *self, sfEvent *event_datas);
     bool sprite_remove_flag(sprite *self, char *flag);
@@ -110,4 +114,16 @@
 
     void clock_update_sprite(scene *scene_datas, sfClock *clock);
     void event_update_sprite(scene *scene_datas, window *window_datas);
+
+    bool sprite_remove_event_update_function(sprite *self
+            , void (*event_update_function)
+            (sprite *sprite_datas, struct window *));
+    bool sprite_add_event_update_function(sprite *self
+            , void (*event_update_function)
+            (sprite *sprite_datas, struct window *));
+
+    bool sprite_add_clock_update_function(sprite *self
+        , void (*clock_update_function)(sprite *sprite_datas, sfClock *clock));
+    bool sprite_remove_clock_update_function(sprite *self
+        , void (*clock_update_function)(sprite *sprite_datas, sfClock *clock));
 #endif //t_class_sprint

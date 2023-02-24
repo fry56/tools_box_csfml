@@ -38,7 +38,7 @@ void clock_update_sprite(scene *scene_datas, sfClock *clock)
 void event_update_sprite(scene *scene_datas, window *window_datas)
 {
     list_foreach(scene_datas->list_sprites, node) {
-        if (((sprite *)node->value)->events_list->length > 0)
+        if (((sprite *)node->value)->list_event_update_functions->length > 0)
             sprite_use_event(((sprite *)node->value), window_datas);
     }
 }

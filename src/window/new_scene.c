@@ -10,25 +10,46 @@
 #include <Class/t_scene.h>
 #include <Class/t_sprite.h>
 
-void init_new_scene(scene *new_scene, void (*load)(struct scene *)
+static void init_new_scene_event(scene *new_scene)
+{
+    new_scene->list_event_update_functions = tlist_new();
+    new_scene->add_event_update_function
+            = scene_add_event_update_function;
+    new_scene->remove_event_update_function
+            = scene_remove_event_update_function;
+    new_scene->add_event_update_function(new_scene, event_update_sprite);
+}
+
+static void init_new_scene_clock(scene *new_scene)
+{
+    new_scene->list_clock_update_functions = tlist_new();
+    new_scene->add_clock_update_function
+            = scene_add_clock_update_function;
+    new_scene->remove_clock_update_function
+            = scene_remove_clock_update_function;
+    new_scene->add_clock_update_function(new_scene, clock_update_sprite);
+}
+
+static void init_new_scene_key(scene *new_scene)
+{
+    new_scene->is_key_bind = scene_is_key_bind;
+    new_scene->add_key_bind = scene_add_key_bind;
+    new_scene->get_key = scene_get_key;
+    new_scene->get_key_press_timestamp = scene_get_key_press_timestamp;
+    new_scene->is_key_press = scene_is_key_press;
+}
+
+static void init_new_scene(scene *new_scene, void (*load)(struct scene *)
     , void (*unload)(struct scene *))
 {
+    new_scene->list_keys = tlist_new();
     new_scene->list_texts = tlist_new();
     new_scene->map_datas = thashmap_new(1024);
-    new_scene->list_clock_update_functions = tlist_new();
-    new_scene->list_event_update_functions = tlist_new();
-    new_scene->add_clock_update_function
-        = scene_add_clock_update_function;
-    new_scene->remove_clock_update_function
-        = scene_remove_clock_update_function;
-    new_scene->add_event_update_function
-        = scene_add_event_update_function;
-    new_scene->remove_event_update_function
-        = scene_remove_event_update_function;
-    new_scene->add_event_update_function(new_scene, event_update_sprite);
-    new_scene->add_clock_update_function(new_scene, clock_update_sprite);
     new_scene->load = load;
     new_scene->unload = unload;
+    init_new_scene_clock(new_scene);
+    init_new_scene_event(new_scene);
+    init_new_scene_key(new_scene);
 }
 
 scene *window_new_scene(window *self, char *name
