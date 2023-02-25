@@ -5,8 +5,7 @@
 ** desc
 */
 
-#include <Class/t_sprite_animation.h>
-#include <Class/t_sprite_animator.h>
+#include <Class/t_sprite.h>
 
 bool animator_play_animation(animator *self, char *animation_name)
 {

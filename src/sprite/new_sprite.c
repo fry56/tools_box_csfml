@@ -11,46 +11,17 @@
 #include "t_list.h"
 #include "t_map.h"
 
-static void init_new_scene_event(sprite *sprite)
-{
-    sprite->list_event_update_functions = tlist_new();
-    sprite->add_event_update_function
-            = sprite_add_event_update_function;
-    sprite->remove_event_update_function
-            = sprite_remove_event_update_function;
-    sprite->add_event_update_function(sprite, event_update_sprite);
-}
-
-static void init_new_scene_clock(sprite *sprite)
-{
-    sprite->list_clock_update_functions = tlist_new();
-    sprite->add_clock_update_function
-            = sprite_add_clock_update_function;
-    sprite->remove_clock_update_function
-            = sprite_remove_clock_update_function;
-    sprite->add_clock_update_function(sprite, clock_update_sprite);
-}
 
 void init_sprite(sprite *sprite)
 {
     sprite->sf_texture = NULL;
     sprite->animator = NULL;
-    sprite->set_pos = sprite_set_pos;
-    sprite->set_origin_center = sprite_set_origin_center;
-    sprite->set_texture = sprite_set_texture;
-    sprite->new_animator = animator_new_animator;
-    sprite->destroy = sprite_destroy;
-    sprite->remove_event = sprite_remove_event;
-    sprite->remove_events_by_type = sprite_remove_events_by_type;
-    sprite->is_mouse_over = sprite_is_mouse_over;
-    sprite->is_mouse_click = sprite_is_mouse_click;
+    sprite->list_clock_update_functions = tlist_new();
+    sprite->list_event_update_functions = tlist_new();
     sprite->sf_sprite = sfSprite_create();
     sprite->list_event_update_functions = tlist_new();
     sprite->list_clock_update_functions = tlist_new();
     sprite->list_flags = tlist_new();
-    sprite->have_flag = sprite_have_flag;
-    sprite->add_flag = sprite_add_flag;
-    sprite->remove_flag = sprite_remove_flag;
 }
 
 t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite
@@ -81,6 +52,6 @@ sprite *new_sprite(scene *scene_datas, char *texture_path, int z_index)
     new_sprite->z_index = z_index;
     init_sprite(new_sprite);
     sprite_set_texture(new_sprite, texture_path);
-    new_sprite->set_origin_center(new_sprite);
+    sprite_set_origin_center(new_sprite);
     return new_sprite;
 }

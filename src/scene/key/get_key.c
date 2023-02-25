@@ -8,6 +8,7 @@
 #include <t_ctype.h>
 #include <Class/t_window.h>
 #include <Utils/t_key.h>
+#include <Class/t_scene.h>
 
 key_bind *scene_get_key(scene *self, sfKeyCode key)
 {

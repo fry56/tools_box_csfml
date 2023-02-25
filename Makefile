@@ -26,6 +26,7 @@ SRC = \
 	src/sprite/animator/callback.c \
 	src/sprite/animator/add_callback.c \
 	src/sprite/animator/remove_callback.c \
+	src/sprite/animator/update.c \
 	\
 	src/sprite/animation/new_animation.c \
 	src/sprite/animation/set_loop.c \
@@ -39,7 +40,7 @@ SRC = \
 	src/sprite/events/remove_clock_update_function.c \
 	src/sprite/events/add_event_update_function.c \
 	src/sprite/events/remove_event_update_function.c \
-	src/sprite/events/use_event.c \
+	src/sprite/events/update.c \
 	\
 	src/sprite/events/handling/is_mouse_over.c \
 	src/sprite/events/handling/is_mouse_click.c \
@@ -49,6 +50,7 @@ SRC = \
 	src/window/update.c \
 	src/window/new_scene.c \
 	src/window/destroy.c \
+	src/window/start_window.c \
 	\
 	src/scene/add_clock_update_function.c \
 	src/scene/add_event_update_function.c \

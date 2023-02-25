@@ -20,6 +20,7 @@ void window_clock_update(window *window_datas)
         ((void (*)(scene *scene_datas, sfClock *clock))node
                 ->value)(actual_scene, window_datas->global_clock);
     }
+    clock_update_sprite(actual_scene, window_datas->global_clock);
 }
 
 void window_event_update(window *window_datas)
@@ -38,4 +39,5 @@ void window_event_update(window *window_datas)
         ((void (*)(scene *scene_datas, struct window *))node
             ->value)(actual_scene, window_datas);
     }
+    event_update_sprite(actual_scene, window_datas);
 }

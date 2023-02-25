@@ -18,15 +18,6 @@ void init_new_text(text *new_text, char *content, rgb rgb)
     sfText_setString(new_text->sf_text, content);
     sfText_setColor(new_text->sf_text, new_text->sf_color);
     new_text->list_flags = tlist_new();
-    new_text->have_flag = text_have_flag;
-    new_text->add_flag = text_add_flag;
-    new_text->remove_flag = text_remove_flag;
-    new_text->set_pos = text_set_pos;
-    new_text->set_content = text_set_content;
-    new_text->set_font_color = text_set_font_color;
-    new_text->set_font_size = text_set_font_size;
-    new_text->destroy = text_destroy;
-    new_text->set_origin_center = text_set_origin_center;
 }
 
 text *new_text(scene *scene_datas, char *content

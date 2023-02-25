@@ -7,7 +7,6 @@
 
 #include <t_ctype.h>
 #include <Utils/t_key.h>
-#include <Class/t_window.h>
 #include <Class/t_scene.h>
 
 bool scene_is_key_press(scene *self, sfKeyCode key)

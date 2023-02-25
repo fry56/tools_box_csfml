@@ -15,7 +15,7 @@ void clear_sprite(scene *temp)
 
     list_foreach(temp->list_sprites, node) {
         temp_sprite = node->value;
-        temp_sprite->destroy(temp_sprite);
+        sprite_destroy(temp_sprite);
     }
 }
 
@@ -25,7 +25,7 @@ void clear_text(scene *temp)
 
     list_foreach(temp->list_texts, node) {
         temp_text = node->value;
-        temp_text->destroy(temp_text);
+        text_destroy(temp_text);
     }
 }
 

@@ -7,7 +7,6 @@
 
 #include <t_ctype.h>
 #include <Utils/t_key.h>
-#include <Class/t_window.h>
 #include <Class/t_scene.h>
 
 tsize_t scene_get_key_press_timestamp(scene *self, sfKeyCode key)

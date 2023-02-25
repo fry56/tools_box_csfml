@@ -21,16 +21,6 @@
         sfText *sf_text;
         sfFont *sf_font;
         sfColor sf_color;
-
-        void (*destroy)(struct text *);
-        void (*set_content)(struct text *, char *content);
-        void (*set_font_color)(struct text *, rgb rgb);
-        void (*set_font_size)(struct text *, uint32_t font_size);
-        void (*set_pos)(struct text *, int x, int y);
-        bool (*add_flag)(struct text *, char *flag);
-        bool (*remove_flag)(struct text *, char *flag);
-        bool (*have_flag)(struct text *, char *flag);
-        void (*set_origin_center)(struct text *);
     } text;
 
     text *new_text(scene *scene_datas, char *content

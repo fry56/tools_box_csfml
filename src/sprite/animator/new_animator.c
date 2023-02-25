@@ -5,8 +5,8 @@
 ** desc
 */
 
-#include <Class/t_sprite_animator.h>
 #include <stdlib.h>
+#include <Class/t_sprite.h>
 
 void init_animator(animator *animator)
 {
@@ -16,25 +16,15 @@ void init_animator(animator *animator)
     animator->played_animation = NULL;
     animator->default_animation = NULL;
     animator->last_clock_update = 1000;
-
-    animator->play_animation = animator_play_animation;
-    animator->add_animation = animator_add_animation;
-    animator->have_animation = animator_have_animation;
-    animator->remove_animation = animator_remove_animation;
-    animator->update_frame = animator_update_frame;
-    animator->set_default = animator_set_default;
-    animator->add_callback = animator_add_callback;
-    animator->remove_callback = animator_remove_callback;
-    animator->remove_callback_by_name = animator_remove_callback_by_name;
-    animator->callback = animator_callback;
 }
 
-void animator_new_animator(sprite *self)
+animator *new_animator(sprite *self)
 {
     animator *new_animator = malloc(sizeof(animator));
     if (new_animator == NULL)
-        return;
+        return NULL;
     init_animator(new_animator);
     new_animator->host = self;
     self->animator = new_animator;
+    return new_animator;
 }

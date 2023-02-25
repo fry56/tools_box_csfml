@@ -6,17 +6,17 @@
 */
 
 #include <Class/t_sprite.h>
-#include <Class/t_animator_callback.h>
 #include <stdlib.h>
+#include <Class/t_sprite_animator.h>
 
 bool animator_add_callback(animator *self, char *animation_name
     , void (*callback_func)(sprite *sprite_pointer))
 {
-    callback *new_callback;
+    animation_callback *new_callback;
 
-    if (!self->have_animation(self, animation_name))
+    if (!animator_have_animation(self, animation_name))
         return false;
-    new_callback = malloc(sizeof(callback));
+    new_callback = malloc(sizeof(animation_callback));
     if (new_callback == NULL)
         return false;
     new_callback->animation_name = animation_name;

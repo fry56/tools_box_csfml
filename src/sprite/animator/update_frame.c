@@ -7,6 +7,7 @@
 
 #include <Class/t_sprite.h>
 #include <stdlib.h>
+#include <Class/t_sprite_animator.h>
 
 int animator_update_frame(animator *self, sfClock *clock)
 {
@@ -22,7 +23,7 @@ int animator_update_frame(animator *self, sfClock *clock)
     self->last_clock_update = sfClock_getElapsedTime(clock).microseconds;
     if (self->animation_frame >= (int)(anim->list_frame_rect->length) - 1) {
         self->animation_frame = 0;
-        self->callback(self, anim->name);
+        animator_callback(self, anim->name);
         if (!anim->loop && self->played_animation != self->default_animation)
             self->played_animation = self->default_animation;
         return true;

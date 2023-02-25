@@ -13,7 +13,7 @@
 void scene_update_key(scene *self, window *window_datas)
 {
     sfEvent event = window_datas->event;
-    key_bind *key = self->get_key(self, event.key.code);
+    key_bind *key = scene_get_key(self, event.key.code);
 
     if (key == NULL)
         return;

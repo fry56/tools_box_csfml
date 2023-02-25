@@ -9,6 +9,20 @@
 
     #include "t_window.h"
 
+    typedef struct scene {
+        bool is_active;
+        struct window *host;
+        t_list *list_sprites;
+        t_list *list_texts;
+        t_list *list_clock_update_functions;
+        t_list *list_event_update_functions;
+        t_list *list_keys;
+        t_hashmap *map_datas;
+
+        void (*load)(struct scene *);
+        void (*unload)(struct scene *);
+    } scene;
+
     bool scene_remove_clock_update_function(scene *self
         , void (*clock_update_function)
         (scene *scene_datas, sfClock *clock));
@@ -22,6 +36,9 @@
         , void (*event_update_function)
         (scene *scene_datas, struct window *));
 
+    scene *new_scene(window *self, char *name
+        , void (*load)(struct scene *)
+        , void (*unload)(struct scene *));
     bool scene_is_key_bind(scene *self, sfKeyCode key);
     bool scene_add_key_bind(scene *self, sfKeyCode key);
     key_bind *scene_get_key(scene *self, sfKeyCode key);

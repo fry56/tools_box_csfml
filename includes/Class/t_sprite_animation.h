@@ -7,9 +7,15 @@
 #ifndef t_class_sprite_animation
     #define t_class_sprite_animation
 
-    #include <stdbool.h>
+    #include <t_list.h>
     #include <SFML/Graphics.h>
-    #include "t_sprite.h"
+
+    typedef struct animation {
+        char *name;
+        bool loop;
+        t_list *list_frame_rect;
+        float frame_rate;
+    } animation;
 
     bool animation_auto_gen_frame(animation *self, int nbr_sprites
         , int nbr_sprite_per_line, sfIntRect rect_start);

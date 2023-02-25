@@ -4,6 +4,8 @@
 ** File description:
 ** desc
 */
+
+#include <Class/t_sprite_animator.h>
 #include "Class/t_sprite.h"
 #include <SFML/Graphics.h>
 #include <stdlib.h>
@@ -18,7 +20,7 @@ void sprite_destroy(sprite *self)
     tlist_remove(self->host->list_sprites, self->sprite_node);
     if (self->animator != NULL) {
         list_foreach(self->animator->list_callback, node) {
-            self->animator->remove_callback(self->animator, i);
+            animator_remove_callback(self->animator, i);
             i++;
         }
         thashmap_clear(self->animator->map_animation);
