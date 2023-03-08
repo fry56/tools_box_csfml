@@ -12,6 +12,7 @@
 
     typedef struct animation {
         char *name;
+        sfTexture *sf_texture;
         bool loop;
         t_list *list_frame_rect;
         float frame_rate;
@@ -23,5 +24,6 @@
     bool animation_remove_frame(animation *self, size_t index);
     void animation_set_loop(animation *self, bool loop);
     bool animation_set_frame_rate(animation *self, float frame_rate);
-    animation *new_animation(char *name, bool loop, float frame_rate);
+    animation *new_animation(char *name, char *path,
+        bool loop, float frame_rate);
 #endif //t_class_sprite_animation

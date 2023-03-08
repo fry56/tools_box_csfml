@@ -21,11 +21,12 @@ int animator_update_frame(animator *self, sfClock *clock)
         >= sfClock_getElapsedTime(clock).microseconds)
         return false;
     self->last_clock_update = sfClock_getElapsedTime(clock).microseconds;
-    if (self->animation_frame >= (int)(anim->list_frame_rect->length) - 1) {
+    if (self->animation_frame > (int)(anim->list_frame_rect->length) - 1) {
         self->animation_frame = 0;
         animator_callback(self, anim->name);
         if (!anim->loop && self->played_animation != self->default_animation)
-            self->played_animation = self->default_animation;
+            animator_play_animation(self,
+                ((animation *)self->default_animation->value)->name);
         return true;
     }
     self->animation_frame++;

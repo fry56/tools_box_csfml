@@ -8,9 +8,8 @@
 #include "Class/t_sprite.h"
 #include <SFML/Graphics.h>
 
-void sprite_set_pos(sprite *self, float x, float y)
+void sprite_set_pos(sprite *self, sfVector2f pos)
 {
-    self->pos.x = x;
-    self->pos.y = y;
-    sfSprite_setPosition(self->sf_sprite, self->pos);
+    self->pos = pos;
+    sfSprite_setPosition(self->sf_sprite, pos);
 }

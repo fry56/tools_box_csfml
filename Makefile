@@ -15,6 +15,7 @@ SRC = \
 	src/sprite/remove_flag.c \
 	src/sprite/have_flag.c \
 	src/sprite/set_origin_center.c \
+	src/sprite/set_fixed_origin.c \
 	\
 	src/sprite/animator/new_animator.c \
 	src/sprite/animator/play_animation.c \
@@ -82,6 +83,7 @@ OBJ = $(SRC:.c=.o)
 GCC = gcc
 
 INCLUDE_FLAGS = \
+	-lcsfml-graphics -lcsfml-window -lcsfml-system\
 	-I includes/ \
 	-I ../tools_box/includes/
 

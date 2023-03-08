@@ -35,7 +35,7 @@ scene *new_scene(window *self, char *name
         free(new_scene);
         return NULL;
     }
-    if ((new_scene_node = thashmap_add(self->scenes_map, name, new_scene))
+    if ((new_scene_node = thashmap_add(self->map_scenes, name, new_scene))
         == NULL) {
         free(new_scene->list_sprites);
         free(new_scene);

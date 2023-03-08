@@ -10,7 +10,7 @@
 
 bool window_change_scene(window *self, char *scene_name)
 {
-    t_hashmap_node *new_scene = thashmap_get(self->scenes_map, scene_name);
+    t_hashmap_node *new_scene = thashmap_get(self->map_scenes, scene_name);
 
     if (new_scene == NULL)
         return false;

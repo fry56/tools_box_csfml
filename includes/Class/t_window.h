@@ -18,7 +18,8 @@
         sfRenderWindow *window;
         sfEvent event;
 
-        t_hashmap *scenes_map;
+        t_hashmap *map_global_datas;
+        t_hashmap *map_scenes;
         t_hashmap_node *actual_scene;
         sfClock *global_clock;
         long long last_tick;
