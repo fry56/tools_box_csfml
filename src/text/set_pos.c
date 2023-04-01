@@ -7,7 +7,10 @@
 
 #include <Class/t_text.h>
 
-void text_set_pos(text *self, int x, int y)
+void text_set_pos(text *self, sfVector2f pos)
 {
-    sfText_setPosition(self->sf_text, (sfVector2f){x, y});
+    self->pos = (sfVector2f){self->pos.x + pos.x, self->pos.y + pos.y};
+    if (self->set_pos != NULL)
+        self->set_pos(self, self->pos);
+    sfText_setPosition(self->sf_text, self->pos);
 }

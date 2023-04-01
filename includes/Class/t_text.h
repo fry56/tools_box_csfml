@@ -17,18 +17,27 @@
         scene *host;
         t_list_node *text_node;
 
+        bool visible;
+        void *datas;
+
+        sfVector2f pos;
         t_list *list_flags;
         sfText *sf_text;
         sfFont *sf_font;
         sfColor sf_color;
+
+        bool (*destroy)(struct text *);
+        bool (*move)(struct text *, sfVector2f pos);
+        bool (*set_pos)(struct text *, sfVector2f pos);
     } text;
 
+    void text_move(text *self, sfVector2f pos);
     text *new_text(scene *scene_datas, char *content
         , char *font, rgb rgb);
     void text_set_content(text *self, char *content);
     void text_set_font_color(text *self, rgb rgb);
     void text_set_font_size(text *self, uint32_t font_size);
-    void text_set_pos(text *self, int x, int y);
+    void text_set_pos(text *self, sfVector2f pos);
     bool text_add_flag(text *self, char *flag);
     bool text_remove_flag(text *self, char *flag);
     bool text_have_flag(text *self, char *flag);

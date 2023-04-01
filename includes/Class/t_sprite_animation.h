@@ -15,11 +15,12 @@
         sfTexture *sf_texture;
         bool loop;
         t_list *list_frame_rect;
+        sfTexture *sf_texture;
         float frame_rate;
     } animation;
 
-    bool animation_auto_gen_frame(animation *self, int nbr_sprites
-        , int nbr_sprite_per_line, sfIntRect rect_start);
+    bool animation_auto_gen_frame(animation *self, int nbr_sprites,
+        int nbr_sprite_per_line, sfIntRect rect_start);
     bool animation_add_frame(animation *self, sfIntRect rect);
     bool animation_remove_frame(animation *self, size_t index);
     void animation_set_loop(animation *self, bool loop);

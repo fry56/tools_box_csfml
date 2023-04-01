@@ -10,6 +10,8 @@
 
 void text_destroy(text *self)
 {
+    if (self->destroy != NULL)
+        self->destroy(self);
     tlist_remove(self->host->list_texts, self->text_node);
     sfText_destroy(self->sf_text);
     sfFont_destroy(self->sf_font);

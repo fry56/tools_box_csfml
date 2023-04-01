@@ -8,7 +8,7 @@
 #include <Class/t_window.h>
 #include <stdlib.h>
 
-bool window_change_scene(window *self, char *scene_name)
+bool change_scene(window *self, char *scene_name)
 {
     t_hashmap_node *new_scene = thashmap_get(self->map_scenes, scene_name);
 

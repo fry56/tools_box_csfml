@@ -14,6 +14,8 @@ void sprite_destroy(sprite *self)
 {
     tsize_t i = 0;
 
+    if (self->destroy != NULL)
+        self->destroy(self);
     sfSprite_destroy(self->sf_sprite);
     if (self->sf_texture != NULL)
         sfTexture_destroy(self->sf_texture);

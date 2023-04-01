@@ -11,12 +11,18 @@
 
 static void window_update_entity(window *self)
 {
-    list_foreach(((scene *)self->actual_scene->value)->list_sprites, node)
+    list_foreach(((scene *)self->actual_scene->value)->list_sprites, node) {
+        if (!((sprite *) node->value)->visible)
+            continue;
         sfRenderWindow_drawSprite(self->window
-                , ((sprite *)node->value)->sf_sprite, NULL);
-    list_foreach(((scene *)self->actual_scene->value)->list_texts, node)
-        sfRenderWindow_drawText(self->window
-                , ((text *)node->value)->sf_text, NULL);
+            , ((sprite *)node->value)->sf_sprite, NULL);
+    }
+    list_foreach(((scene *)self->actual_scene->value)->list_texts, node) {
+        if (!((text *) node->value)->visible)
+            continue;
+        sfRenderWindow_drawText(self->window, ((text *) node->value)->sf_text,
+            NULL);
+    }
 }
 
 int start_window(window *self)

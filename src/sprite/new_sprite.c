@@ -14,8 +14,9 @@
 
 void init_sprite(sprite *sprite)
 {
+    sprite->visible = true;
+    sprite->sf_texture = NULL;
     sprite->animator = NULL;
-    sprite->fixed_origin = false;
     sprite->list_clock_update_functions = tlist_new();
     sprite->list_event_update_functions = tlist_new();
     sprite->sf_sprite = sfSprite_create();
@@ -51,7 +52,6 @@ sprite *new_sprite(scene *scene_datas, char *texture_path, int z_index)
     new_sprite->sprite_node = new_sprite_node;
     new_sprite->z_index = z_index;
     init_sprite(new_sprite);
-    new_sprite->sf_texture = NULL;
     if (texture_path != NULL)
         sprite_set_texture(new_sprite, texture_path);
     sprite_set_origin_center(new_sprite);

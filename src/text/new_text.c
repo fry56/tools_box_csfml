@@ -12,6 +12,7 @@
 
 void init_new_text(text *new_text, char *content, rgb rgb)
 {
+    new_text->visible = true;
     new_text->sf_text = sfText_create();
     new_text->sf_color = sfColor_fromRGB(rgb.red, rgb.green, rgb.blue);
     sfText_setFont(new_text->sf_text, new_text->sf_font);

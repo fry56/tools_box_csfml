@@ -11,5 +11,7 @@
 void sprite_set_pos(sprite *self, sfVector2f pos)
 {
     self->pos = pos;
-    sfSprite_setPosition(self->sf_sprite, pos);
+    if (self->set_pos != NULL)
+        self->set_pos(self, self->pos);
+    sfSprite_setPosition(self->sf_sprite, self->pos);
 }

@@ -24,17 +24,22 @@
 
         sfTexture *sf_texture;
         sfVector2f pos;
-        bool fixed_origin;
+        bool visible;
         int z_index;
 
         t_list *list_flags;
-        void *sprite_datas;
+        void *datas;
 
         animator *animator;
         t_list *list_clock_update_functions;
         t_list *list_event_update_functions;
+
+        bool (*destroy)(struct sprite *);
+        bool (*move)(struct sprite *, sfVector2f pos);
+        bool (*set_pos)(struct sprite *, sfVector2f pos);
     } sprite;
 
+    void sprite_move(sprite *self, sfVector2f pos);
     void sprite_set_pos(sprite *self, sfVector2f pos);
     bool sprite_set_texture(sprite *self, char *path);
     void sprite_set_origin_center(sprite *self);
@@ -46,7 +51,8 @@
     bool sprite_remove_flag(sprite *self, char *flag);
     bool sprite_add_flag(sprite *self, char *flag);
     bool sprite_have_flag(sprite *self, char *flag);
-    void sprite_set_fixed_origin(sprite *self, sfVector2f origin);
+
+    sprite *sprite_get_by_flag(scene *scene_datas, char *flag);
 
     void clock_update_sprite(scene *scene_datas, sfClock *clock);
     void event_update_sprite(scene *scene_datas, window *window_datas);
