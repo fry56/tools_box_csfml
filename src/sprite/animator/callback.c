@@ -11,7 +11,8 @@
 void animator_callback(animator *self, char *animation_name)
 {
     list_foreach(self->list_callback, node) {
-        if (((animation_callback *)node->value)->animation_name == animation_name)
+        if (((animation_callback *)node->value)->animation_name ==
+            animation_name)
             ((animation_callback *)node->value)->callback(self->host);
     }
 }

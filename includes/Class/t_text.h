@@ -26,9 +26,9 @@
         sfFont *sf_font;
         sfColor sf_color;
 
-        bool (*destroy)(struct text *);
-        bool (*move)(struct text *, sfVector2f pos);
-        bool (*set_pos)(struct text *, sfVector2f pos);
+        void (*destroy)(struct text *);
+        void (*move)(struct text *, sfVector2f pos);
+        void (*set_pos)(struct text *, sfVector2f pos);
     } text;
 
     void text_move(text *self, sfVector2f pos);

@@ -35,9 +35,9 @@
         t_list *list_clock_update_functions;
         t_list *list_event_update_functions;
 
-        bool (*destroy)(struct sprite *);
-        bool (*move)(struct sprite *, sfVector2f pos);
-        bool (*set_pos)(struct sprite *, sfVector2f pos);
+        void (*destroy)(struct sprite *);
+        void (*move)(struct sprite *, sfVector2f pos);
+        void (*set_pos)(struct sprite *, sfVector2f pos);
     } sprite;
 
     void sprite_move(sprite *self, sfVector2f pos);
