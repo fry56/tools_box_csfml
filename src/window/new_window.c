@@ -7,6 +7,8 @@
 
 #include <Class/t_window.h>
 #include <stdlib.h>
+#include <t_assert.h>
+#include <t_mem.h>
 
 static void init_window(window *self)
 {
@@ -20,17 +22,12 @@ static void init_window(window *self)
 
 window *new_window(char *name, sfVideoMode mode)
 {
-    window *new_window = malloc(sizeof(window));
+    window *new_window = tcalloc(1, sizeof(window));
 
-    if (new_window == NULL)
-        return NULL;
+    tassert(new_window == NULL && "New window == NULL");
     new_window->mode = mode;
-    new_window->window = sfRenderWindow_create(mode, name
-        , sfClose, NULL);
-    if (!new_window->window) {
-        free(new_window);
-        return NULL;
-    }
+    tassert((new_window->window = sfRenderWindow_create(mode, name,
+        sfClose, NULL)) == NULL && "SFML window == NULL");
     init_window(new_window);
     return new_window;
 }

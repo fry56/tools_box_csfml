@@ -7,6 +7,8 @@
 
 #include <stdlib.h>
 #include <Class/t_sprite.h>
+#include <t_mem.h>
+#include <t_assert.h>
 
 void init_animator(animator *animator)
 {
@@ -20,9 +22,9 @@ void init_animator(animator *animator)
 
 animator *new_animator(sprite *self)
 {
-    animator *new_animator = malloc(sizeof(animator));
-    if (new_animator == NULL)
-        return NULL;
+    animator *new_animator = tcalloc(1, sizeof(animator));
+
+    t_assert(new_animator == NULL);
     init_animator(new_animator);
     new_animator->host = self;
     self->animator = new_animator;

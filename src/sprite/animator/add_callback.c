@@ -8,6 +8,8 @@
 #include <Class/t_sprite.h>
 #include <stdlib.h>
 #include <Class/t_sprite_animator.h>
+#include <t_mem.h>
+#include <t_assert.h>
 
 bool animator_add_callback(animator *self, char *animation_name
     , void (*callback_func)(sprite *sprite_pointer))
@@ -16,14 +18,9 @@ bool animator_add_callback(animator *self, char *animation_name
 
     if (!animator_have_animation(self, animation_name))
         return false;
-    new_callback = malloc(sizeof(animation_callback));
-    if (new_callback == NULL)
-        return false;
+    tassert((new_callback = tcalloc(1, sizeof(animation_callback))) == NULL);
     new_callback->animation_name = animation_name;
     new_callback->callback = callback_func;
-    if (tlist_add(self->list_callback, new_callback) == NULL) {
-        free(new_callback);
-        return false;
-    }
+    tlist_add(self->list_callback, new_callback);
     return true;
 }

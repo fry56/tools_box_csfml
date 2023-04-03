@@ -12,10 +12,8 @@
 bool animator_add_animation(animator *self, animation *new_animation)
 {
     t_hashmap_node *animation = thashmap_add(self->map_animation
-            , new_animation->name
-            , new_animation);
-    if (animation == NULL)
-        return false;
+        , new_animation->name
+        , new_animation);
     if (self->default_animation == NULL)
         self->default_animation = animation;
     return true;

@@ -9,7 +9,7 @@
 #include <Class/t_window.h>
 
 bool sprite_remove_clock_update_function(sprite *self
-        , void (*clock_update_function)(sprite *sprite_datas, sfClock *clock))
+    , void (*clock_update_function)(sprite *sprite_datas, sfClock *clock))
 {
     list_foreach(self->list_clock_update_functions, node) {
         if (node->value == clock_update_function) {

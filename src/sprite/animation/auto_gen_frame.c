@@ -7,6 +7,8 @@
 
 #include <Class/t_sprite.h>
 #include <stdlib.h>
+#include <t_mem.h>
+#include <t_assert.h>
 
 bool animation_auto_gen_frame(animation *self, int nbr_sprites
     , int nbr_sprite_per_line, sfIntRect rect_start)
@@ -15,8 +17,7 @@ bool animation_auto_gen_frame(animation *self, int nbr_sprites
     int line_index;
 
     for (int i = 0; i < nbr_sprites; ++i) {
-        if ((temp_rect = malloc(sizeof(sfIntRect))) == NULL)
-            return false;
+        t_assert((temp_rect = tcalloc(1, sizeof(sfIntRect))) == NULL);
         line_index = abs(i / nbr_sprite_per_line);
         *temp_rect = rect_start;
         temp_rect->top += rect_start.height * line_index;

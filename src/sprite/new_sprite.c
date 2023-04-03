@@ -10,6 +10,8 @@
 #include "Class/t_sprite_animator.h"
 #include "t_list.h"
 #include "t_map.h"
+#include <t_assert.h>
+#include <t_mem.h>
 
 
 void init_sprite(sprite *sprite)
@@ -23,14 +25,14 @@ void init_sprite(sprite *sprite)
     sprite->animator = NULL;
     sprite->list_clock_update_functions = tlist_new();
     sprite->list_event_update_functions = tlist_new();
-    sprite->sf_sprite = sfSprite_create();
+    tassert((sprite->sf_sprite = sfSprite_create()) == NULL);
     sprite->list_event_update_functions = tlist_new();
     sprite->list_clock_update_functions = tlist_new();
     sprite->list_flags = tlist_new();
 }
 
-t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite
-    , int z_index)
+t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite,
+    int z_index)
 {
     list_foreach(list_sprites, node) {
         if (((sprite *)node->value)->z_index > z_index)
@@ -41,11 +43,10 @@ t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite
 
 sprite *new_sprite(scene *scene_datas, char *texture_path, int z_index)
 {
-    sprite *new_sprite = malloc(sizeof(sprite));
+    sprite *new_sprite = tcalloc(1, sizeof(sprite));
     t_list_node *new_sprite_node;
 
-    if (new_sprite == NULL)
-        return NULL;
+    tassert(new_sprite == NULL);
     if ((new_sprite_node = z_index_list_add(scene_datas->list_sprites
         , new_sprite, z_index))
         == NULL) {

@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include "Class/t_scene.h"
 #include "Class/t_sprite.h"
+#include <t_mem.h>
+#include <t_assert.h>
 
 static void init_new_scene(scene *new_scene, void (*load)(struct scene *),
     void (*unload)(struct scene *))
@@ -26,20 +28,11 @@ scene *new_scene(window *self, char *name,
     void (*load)(struct scene *),
     void (*unload)(struct scene *))
 {
-    scene *new_scene = malloc(sizeof(scene));
-    if (new_scene == NULL)
-        return NULL;
+    scene *new_scene = tcalloc(1, sizeof(scene));
+
+    tassert(new_scene == NULL);
     new_scene->list_sprites = tlist_new();
-    if (new_scene->list_sprites == NULL) {
-        free(new_scene);
-        return NULL;
-    }
-    if ((new_scene->scene_node =
-        thashmap_add(self->map_scenes, name, new_scene)) == NULL) {
-        free(new_scene->list_sprites);
-        free(new_scene);
-        return NULL;
-    }
+    thashmap_add(self->map_scenes, name, new_scene);
     new_scene->host = self;
     if (self->actual_scene == NULL)
         self->actual_scene = new_scene->scene_node;
