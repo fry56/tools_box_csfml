@@ -17,7 +17,7 @@ bool animation_auto_gen_frame(animation *self, int nbr_sprites
     int line_index;
 
     for (int i = 0; i < nbr_sprites; ++i) {
-        t_assert((temp_rect = tcalloc(1, sizeof(sfIntRect))) == NULL);
+        tassert((temp_rect = tcalloc(1, sizeof(sfIntRect))) == NULL);
         line_index = abs(i / nbr_sprite_per_line);
         *temp_rect = rect_start;
         temp_rect->top += rect_start.height * line_index;

@@ -17,7 +17,7 @@ bool scene_add_key_bind(scene *self, sfKeyCode key)
 
     if (scene_is_key_bind(self, key))
         return false;
-    tassert((new_key = tcalloc(1, sizeof(key_bind))) == NULL);
+    t_assert((new_key = tcalloc(1, sizeof(key_bind))) == NULL);
     new_key->key = key;
     new_key->is_press = false;
     new_key->timestamp = 0;

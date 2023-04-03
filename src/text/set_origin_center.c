@@ -10,6 +10,7 @@
 void text_set_origin_center(text *self)
 {
     sfFloatRect text_bounds = sfText_getGlobalBounds(self->sf_text);
+
     sfText_setOrigin(self->sf_text
         , (sfVector2f){(text_bounds.width / 2), (text_bounds.height / 2)});
 }

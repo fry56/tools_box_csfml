@@ -35,9 +35,9 @@ int window_start(window *self)
         window_update_entity(self);
         sfRenderWindow_display(self->window);
         self->deltatime = ((float)sfClock_getElapsedTime(self->global_clock)
-            .microseconds - (float)self->last_tick) / 10000;
+                .microseconds - (float)self->last_tick) / 10000;
         self->last_tick = sfClock_getElapsedTime(self->global_clock)
-            .microseconds;
+                .microseconds;
     }
     window_destroy(self);
     return 0;

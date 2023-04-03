@@ -10,9 +10,8 @@
 #include "Class/t_sprite_animator.h"
 #include "t_list.h"
 #include "t_map.h"
-#include <t_assert.h>
 #include <t_mem.h>
-
+#include <t_assert.h>
 
 void init_sprite(sprite *sprite)
 {
@@ -31,8 +30,8 @@ void init_sprite(sprite *sprite)
     sprite->list_flags = tlist_new();
 }
 
-t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite,
-    int z_index)
+t_list_node *z_index_list_add(t_list *list_sprites, sprite *new_sprite
+    , int z_index)
 {
     list_foreach(list_sprites, node) {
         if (((sprite *)node->value)->z_index > z_index)
@@ -47,12 +46,8 @@ sprite *new_sprite(scene *scene_datas, char *texture_path, int z_index)
     t_list_node *new_sprite_node;
 
     tassert(new_sprite == NULL);
-    if ((new_sprite_node = z_index_list_add(scene_datas->list_sprites
-        , new_sprite, z_index))
-        == NULL) {
-        free(new_sprite);
-        return NULL;
-    }
+    new_sprite_node = z_index_list_add(scene_datas->list_sprites,
+        new_sprite, z_index);
     new_sprite->host = scene_datas;
     new_sprite->sprite_node = new_sprite_node;
     new_sprite->z_index = z_index;

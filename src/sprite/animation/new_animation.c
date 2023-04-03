@@ -14,7 +14,7 @@ animation *new_animation(char *name, char *path, bool loop, float frame_rate)
 {
     animation *new_animation = tcalloc(1, sizeof(animation));
 
-    tassert(new_animation == NULL);
+    t_assert(new_animation == NULL);
     new_animation->sf_texture = NULL;
     new_animation->name = name;
     new_animation->loop = loop;

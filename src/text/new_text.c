@@ -8,6 +8,7 @@
 #include <Class/t_window.h>
 #include <Class/t_text.h>
 #include <stdlib.h>
+#include <t_string.h>
 #include <t_assert.h>
 #include <t_mem.h>
 
@@ -25,13 +26,13 @@ void init_new_text(text *new_text, char *content, rgb rgb)
     new_text->list_flags = tlist_new();
 }
 
-text *new_text(scene *scene_datas, char *content
-    , char *font, rgb rgb)
+text *new_text(scene *scene_datas, char *content,
+    char *font, rgb rgb)
 {
     text *new_text = tcalloc(1, sizeof(text));
     t_list_node *new_text_node;
 
-    tassert(new_text == NULL);
+    t_assert(new_text == NULL);
     new_text_node = tlist_add(scene_datas->list_texts, new_text);
     if (font == NULL)
         font = "assets/font/Fruit Days.ttf";

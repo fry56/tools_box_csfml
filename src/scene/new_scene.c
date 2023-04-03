@@ -30,9 +30,9 @@ scene *new_scene(window *self, char *name,
 {
     scene *new_scene = tcalloc(1, sizeof(scene));
 
-    tassert(new_scene == NULL);
+    t_assert(new_scene == NULL);
     new_scene->list_sprites = tlist_new();
-    thashmap_add(self->map_scenes, name, new_scene);
+    new_scene->scene_node = thashmap_add(self->map_scenes, name, new_scene);
     new_scene->host = self;
     if (self->actual_scene == NULL)
         self->actual_scene = new_scene->scene_node;
