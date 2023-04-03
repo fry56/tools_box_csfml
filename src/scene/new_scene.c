@@ -19,6 +19,7 @@ static void init_new_scene(scene *new_scene, void (*load)(struct scene *),
     new_scene->list_clock_update_functions = tlist_new();
     new_scene->list_keys = tlist_new();
     new_scene->list_texts = tlist_new();
+    new_scene->list_sound_manager = tlist_new();
     new_scene->map_datas = thashmap_new(1024);
     new_scene->load = load;
     new_scene->unload = unload;

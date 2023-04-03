@@ -7,6 +7,8 @@
 
 #include <Class/t_window.h>
 #include <stdlib.h>
+#include <Class/t_scene.h>
+#include <Class/t_sound_manager.h>
 
 bool window_change_scene(window *self, char *scene_name)
 {
@@ -14,6 +16,8 @@ bool window_change_scene(window *self, char *scene_name)
 
     if (new_scene == NULL)
         return false;
+    list_foreach(((scene *)self->actual_scene->value)->list_sound_manager, node)
+        sfSound_stop(((sound_mananger *)node->value)->sf_sound);
     self->actual_scene = new_scene;
     return true;
 }

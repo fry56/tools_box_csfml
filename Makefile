@@ -78,7 +78,17 @@ SRC = \
 	src/text/add_flag.c \
 	src/text/remove_flag.c \
 	src/text/have_flag.c \
-	src/text/move.c
+	src/text/move.c \
+	\
+	src/soud/new_sound.c \
+	src/soud/sound_destroy.c \
+	\
+	src/soud/manager/new_sound_manger.c \
+	src/soud/manager/sound_manager_add_sound.c \
+	src/soud/manager/sound_manager_destroy.c \
+	src/soud/manager/sound_manager_play_sound.c \
+	src/soud/manager/sound_manager_remove_sound.c \
+	src/soud/manager/sound_manager_stop_sound.c \
 
 OBJ = $(SRC:.c=.o)
 
