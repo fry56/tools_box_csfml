@@ -17,6 +17,7 @@ SRC = \
 	src/sprite/set_origin_center.c \
 	src/sprite/get_by_flag.c \
 	src/sprite/move.c \
+	src/sprite/set_fixed_origin.c \
 	\
 	src/sprite/animator/new_animator.c \
 	src/sprite/animator/play_animation.c \
@@ -50,16 +51,13 @@ SRC = \
 	src/window/new_window.c \
 	src/window/change_scene.c \
 	src/window/update.c \
-	src/window/new_scene.c \
 	src/window/destroy.c \
-	src/window/start_window.c \
+	src/window/start.c \
 	\
 	src/scene/add_clock_update_function.c \
 	src/scene/add_event_update_function.c \
-	\
 	src/scene/remove_clock_update_function.c \
 	src/scene/remove_event_update_function.c \
-	\
 	src/scene/key/add_key_bind.c \
 	src/scene/key/get_key_press_timestamp.c \
 	src/scene/key/is_key_bind.c \
@@ -67,6 +65,8 @@ SRC = \
 	src/scene/key/remove_key_bind.c \
 	src/scene/key/get_key.c \
 	src/scene/key/update_key.c \
+	src/scene/new_scene.c \
+	src/scene/destroy.c \
 	\
 	src/text/destroy.c \
 	src/text/new_text.c \

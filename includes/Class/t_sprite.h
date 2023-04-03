@@ -25,6 +25,7 @@
         sfTexture *sf_texture;
         sfVector2f pos;
         bool visible;
+        bool fixed_origin;
         int z_index;
 
         t_list *list_flags;

@@ -14,7 +14,11 @@
 
 void init_sprite(sprite *sprite)
 {
+    sprite->move = NULL;
+    sprite->set_pos = NULL;
+    sprite->destroy = NULL;
     sprite->visible = true;
+    sprite->fixed_origin = false;
     sprite->sf_texture = NULL;
     sprite->animator = NULL;
     sprite->list_clock_update_functions = tlist_new();

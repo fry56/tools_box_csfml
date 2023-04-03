@@ -12,7 +12,6 @@
 
     typedef struct animation {
         char *name;
-        sfTexture *sf_texture;
         bool loop;
         t_list *list_frame_rect;
         sfTexture *sf_texture;

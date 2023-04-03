@@ -25,7 +25,7 @@ static void window_update_entity(window *self)
     }
 }
 
-int start_window(window *self)
+int window_start(window *self)
 {
     while (sfRenderWindow_isOpen(self->window)) {
         while (sfRenderWindow_pollEvent(self->window, &self->event))

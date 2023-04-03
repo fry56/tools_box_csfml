@@ -11,6 +11,8 @@
 
     typedef struct scene {
         struct window *host;
+        t_hashmap_node *scene_node;
+
         t_list *list_sprites;
         t_list *list_texts;
         t_list *list_clock_update_functions;
@@ -37,11 +39,13 @@
         , void (*event_update_function)
         (scene *scene_datas, struct window *));
 
-    scene *new_scene(window *self, char *name
-        , void (*load)(struct scene *)
-        , void (*unload)(struct scene *));
+    scene *new_scene(window *self, char *name,
+        void (*load)(struct scene *),
+        void (*unload)(struct scene *));
+    void scene_destroy(scene *scene_datas);
     bool scene_is_key_bind(scene *self, sfKeyCode key);
     bool scene_add_key_bind(scene *self, sfKeyCode key);
+    bool scene_remove_key_bind(scene *self, sfKeyCode key);
     key_bind *scene_get_key(scene *self, sfKeyCode key);
     tsize_t scene_get_key_press_timestamp(scene *self, sfKeyCode key);
     bool scene_is_key_press(scene *self, sfKeyCode key);

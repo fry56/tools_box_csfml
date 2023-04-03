@@ -12,6 +12,9 @@
 
 void init_new_text(text *new_text, char *content, rgb rgb)
 {
+    new_text->move = NULL;
+    new_text->set_pos = NULL;
+    new_text->destroy = NULL;
     new_text->visible = true;
     new_text->sf_text = sfText_create();
     new_text->sf_color = sfColor_fromRGB(rgb.red, rgb.green, rgb.blue);

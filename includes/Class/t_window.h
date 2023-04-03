@@ -27,10 +27,10 @@
         float deltatime;
     } window;
 
-    bool change_scene(window *self, char *scene_name);
+    bool window_change_scene(window *self, char *scene_name);
     window *new_window(char *name, sfVideoMode mode);
     void window_clock_update(window *window_datas);
     void window_event_update(window *window_datas);
     void window_destroy(window *self);
-    int start_window(window *self);
+    int window_start(window *self);
 #endif //t_class_window
