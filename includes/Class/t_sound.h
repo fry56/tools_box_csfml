@@ -9,6 +9,7 @@
 
     #include <SFML/Audio.h>
     #include <SFML/Audio/Types.h>
+    #include <SFML/Audio/Export.h>
     #include <t_ctype.h>
 
     typedef struct sound {
